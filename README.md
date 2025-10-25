@@ -1,5 +1,5 @@
 ## Welcome to Thistle.io :art: :point_up_2: 
-Girls Hoo Hack 2025 Official Submission by Ayan Rasulova, Emilie Deadman, Amelia Chen, Jack Ellis (GitHub: jackawackadoo)
+Girls Hoo Hack 2025 Official Submission by Ayan Rasulova, Emilie Deadman (GitHub: echiino), Amelia Chen, Jack Ellis (GitHub: jackawackadoo)
 
 ## Inspiration:
 
