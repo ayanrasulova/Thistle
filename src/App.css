@@ -6,6 +6,26 @@
   font-family: 'Lexend', sans-serif;
 }
 
+body {
+  background-color: #1B1B1B !important ; /* dark grayish black */
+  color: #f5f5f5 !important; /* off-white for better contrast */
+  margin: 0;
+}
+
+.custom-navbar {
+  background-color: #262626 !important; /* or your preferred hex code */
+}
+
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link {
+  color: #ffffff !important;
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .navbar-brand:hover {
+  color: #cccccc !important;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -39,6 +59,35 @@
 }
 
 h1 {
-  font-size: 3.2em;
+  font-weight: 600 !important;
+  font-size: 3.2em !important;
   line-height: 1.1;
+}
+
+.welcome-heading {
+  font-weight: 600; /* semibold */
+  font-size: 4em !important;
+  text-align: left;
+}
+
+.placeholder {
+  margin-right: 30px; /* adjust as needed */
+  margin-bottom: 100px;
+}
+
+.white-text {
+  color: #ffffff;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #8FD4CB, #9EFF6E); /* teal-blue gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+p {
+  text-align: left;
+  font-size: 1.2em
 }

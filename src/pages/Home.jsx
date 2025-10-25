@@ -4,20 +4,29 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import placeholder from '../assets/placeholder.gif';
 
 function Home() {
     return (
-        <Container>
+        <Container style={{ paddingTop: '100px' }}>            
             <Stack gap={5}>
                 <div>
                     <Stack direction="horizontal" gap={3}>
-                        <div>
-                            <p>This is where the figure will go.</p>
+                        <div class="placeholder">
+                            <img 
+                            src={placeholder} 
+                            alt="Placeholder animation" 
+                            style={{ width: '500px', borderRadius: '10px' }} 
+                            />
                         </div>
-                        <div>
+                        <div className="home-container">
                             <Stack>
                                 <div>
-                                    <h1>Welcome to Thistle.</h1>
+                                    <h1 className="welcome-heading">
+                                    <span className="white-text">Welcome to </span>
+                                    <span className="gradient-text">Thistle</span>
+                                    <span className="white-text">.</span>
+                                    </h1>
                                 </div>
                                 <div>
                                     <p>
@@ -48,7 +57,11 @@ function Home() {
                 <div>
                     <Stack>
                         <div>
-                            <h1>Our Mission.</h1>
+                            <h1>
+                                <span className="white-text">Our </span>
+                                <span className="gradient-text">Mission</span>
+                                <span className="white-text">.</span>
+                            </h1>
                         </div>
                         <div>
                         <p>
@@ -64,7 +77,11 @@ function Home() {
                 <div>
                     <Stack>
                         <div>
-                            <h1>How it Works.</h1>
+                            <h1>
+                                <span className="white-text">How it </span>
+                                <span className="gradient-text">Works</span>
+                                <span className="gradient-text">.</span>
+                            </h1>
                         </div>
                         <div>
                             <p>
