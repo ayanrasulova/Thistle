@@ -19,7 +19,7 @@ These gestures are then transmitted in real-time via webcam to our JavaScript ca
 
 ## How To Use!
 
-First you need to run the setup script:
+First, make sure you have Node.js installed. You then need to run the setup script:
 
 ***You must be using Python 3.12 for the necessary libraries to work***
 
