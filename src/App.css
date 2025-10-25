@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-family: 'Lexend', sans-serif;
 }
 
 .logo {
@@ -37,6 +38,7 @@
   padding: 2em;
 }
 
-.read-the-docs {
-  color: #888;
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
 }
