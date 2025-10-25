@@ -25,6 +25,7 @@ previousTime = 0 #initialize for fps
 while video.isOpened():
     ret, frame = video.read()# reads frame by frame    
 
+    frame = cv2.flip(frame, 1) # flip for more intuitive view
     image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB) # color conversion BGR to RGB
 
     # predictions made based on holistic model
@@ -34,22 +35,23 @@ while video.isOpened():
 
     image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR) # color conversion back from RGB to BGR
 
-    # facial key points (we will use hands for now but can also map to face)
-    mp_draw.draw_landmarks(
-      image,
-      results.face_landmarks,
-      holistic_mp.FACEMESH_CONTOURS,
-      mp_draw.DrawingSpec(
-        color=(255,0,255),
-        thickness=1,
-        circle_radius=1
-      ),
-      mp_draw.DrawingSpec(
-        color=(0,255,255),
-        thickness=1,
-        circle_radius=1
-      )
-    )
+    # facial key points (we will use hands for now but can also map to face.. commenting out for now)
+
+    # mp_draw.draw_landmarks(
+    #   image,
+    #   results.face_landmarks,
+    #   holistic_mp.FACEMESH_CONTOURS,
+    #   mp_draw.DrawingSpec(
+    #     color=(255,0,255),
+    #     thickness=1,
+    #     circle_radius=1
+    #   ),
+    #   mp_draw.DrawingSpec( 
+    #     color=(0,255,255),
+    #     thickness=1,
+    #     circle_radius=1
+    #   )
+    # )
 
     # right hand key points
     mp_draw.draw_landmarks(
@@ -77,6 +79,12 @@ while video.isOpened():
     if cv2.waitKey(5) & 0xFF == ord('q'): # exit with q, check bottom 8 bits
         break
 
+    # Code to access landmarks
+    for landmark in holistic_mp.HandLandmark:
+        print(landmark, landmark.value)
+
+print(holistic_mp.HandLandmark.WRIST.value)
+
 # release vid and close windows when loop ends 
 video.release()
-cv2.destroyAllWindows() # end windows and 
+cv2.destroyAllWindows() # end windows  
