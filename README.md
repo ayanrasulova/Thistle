@@ -9,11 +9,11 @@ Generative AI has become more powerful over the last few years, and a lot of dis
 
 Thistle utilizes OpenCV and MediaPipe Hands to detect and track hand signals through a live webcam feed. Our custom motion-mapping algorithms classify specific hand gestures, including: 
 
-- index finger ( :point_up: ) to navigate through the canvas
-- dual fingers (:metal:) to switch between drawing and erasing mode 
-- index finger with thumb out ( :point_up_2: ) to interact with the canvas (drawing or erasing)
-- finger pinch ( :fingers_crossed: ) to enter color selection mode 
-- long swipe ( :hand_splayed:) to clear the canvas 
+- index finger (☝️) to navigate through the canvas
+- dual fingers (🤘) to switch between drawing and erasing mode 
+- index finger with thumb out (👆) to interact with the canvas (drawing or erasing)
+- finger pinch (☝️) to enter color selection mode 
+- long swipe (🖐️) to clear the canvas 
 
 These gestures are then transmitted in real-time via webcam to our JavaScript canvas, rendering the canvas on our front-end website (build with React and Tailwind).
 
