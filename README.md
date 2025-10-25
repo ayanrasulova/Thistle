@@ -5,7 +5,7 @@ Girls Hoo Hack 2025 Official Submission by Ayan Rasulova (GitHub: ayanrasulova),
 
 Generative AI has become more powerful over the last few years, and a lot of discourse within art communities involves the idea that artists with disabilities are not able to create art without the use of generating drawings through prompt engineering. As passionate artists and software developers, we wanted to challenge this notion, offering an accessible alternative for digital drawing beyond the constraints of a mouse, tablet, or physical device. 
 
-## Features:
+## Features & How We Built It:
 
 Thistle utilizes OpenCV and MediaPipe Hands to detect and track hand signals through a live webcam feed. Our custom motion-mapping algorithms classify specific hand gestures, including: 
 
@@ -17,7 +17,7 @@ Thistle utilizes OpenCV and MediaPipe Hands to detect and track hand signals thr
 
 These gestures are then transmitted in real-time via webcam to our JavaScript canvas, rendering the canvas on our front-end website (build with React and Tailwind).
 
-## How To Use!
+## Run Instructions
 
 First, make sure you have Node.js installed. You then need to run the setup script:
 
@@ -39,6 +39,14 @@ If these commands are saying you're on the wrong Python version, try running it 
 
 To run the server, first run ```bash npm install ``` to install the npm dependencies, then run ```bash npm run dev``` to start the server on your local host. 
 
-## Reflection/Next Steps:
+## Challenges We Ran Into
+
+(insert here)
+
+## What We're Proud Of
+
+(insert here)
+
+## What's next for Thistle:
 
 We have centered our design with consideration to those with Parkinson's, Dyspraxia, and carpal tunnel syndrome. However, we plan to allow for customization with our computer vision mappings, allowing people to map canvas interactions to kinesthetic movements that feel most comfortable for them.
