@@ -43,3 +43,8 @@ h1 {
     color: white;
     padding: 2px;
 }
+
+canvas {
+    background-color: #ffff; /* same as toolbar background */
+    display: block; /* removes default inline spacing */
+}

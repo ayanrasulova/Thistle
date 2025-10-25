@@ -42,7 +42,7 @@ def main():
         print("No requirements.txt found — skipping pip install.")
 
     # Install mediapipe using nvm which is installed from dependencies.txt
-    cmd = "nvm install mediapipe"
+    cmd = "npm install tailwindcss @tailwindcss/vite"
     run_list(cmd)
 
 if __name__ == "__main__":
