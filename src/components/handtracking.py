@@ -37,7 +37,7 @@ while video.isOpened():
     mp_draw.draw_landmarks(
       image,
       results.face_landmarks,
-      mp_model.FACEMESH_CONTOURS,
+      holistic_mp.FACEMESH_CONTOURS,
       mp_draw.DrawingSpec(
         color=(255,0,255),
         thickness=1,
@@ -54,14 +54,14 @@ while video.isOpened():
     mp_draw.draw_landmarks(
       image, 
       results.right_hand_landmarks, 
-      mp_model.HAND_CONNECTIONS
+      mp.solutions.hands.HAND_CONNECTIONS
     )
 
     # left hand key points 
     mp_draw.draw_landmarks(
       image, 
       results.left_hand_landmarks, 
-      mp_model.HAND_CONNECTIONS
+      mp.solutions.hands.HAND_CONNECTIONS
     )
     
     # time module to get frames per second, then display
