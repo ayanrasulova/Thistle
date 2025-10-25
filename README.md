@@ -21,12 +21,20 @@ These gestures are then transmitted in real-time via webcam to our JavaScript ca
 
 Make sure you install the dependencies first:
 ``` bash
-dependencies here
+pip install dependencies.txt
 ```
+
+If you are on Linux, make sure you create a virtual environment for your dependencies:
+```bash 
+sudo apt install python3-full python3-venv -y
+python3 -m venv ~/venv
+source ~/venv/bin/activate
+pip install dependencies.txt
+```
+
 Then, type the following commands into the terminal: 
  ```bash
-insert download here 
-python run.py # etc 
+# include steps here
 ```
 
 ## Reflection/Next Steps:
