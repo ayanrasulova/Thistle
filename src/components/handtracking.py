@@ -21,6 +21,7 @@ if not video.isOpened():
     print("video not opening, check webcam")
     exit()
 
+previousTime = 0 #initialize for fps
 while video.isOpened():
     ret, frame = video.read()# reads frame by frame    
 
@@ -73,7 +74,7 @@ while video.isOpened():
     # display img
     cv2.imshow("Facial and Hand Landmarks", image)
 
-    if cv2.waitKey(5) & 0xFF == ord('q'): # exit with q
+    if cv2.waitKey(5) & 0xFF == ord('q'): # exit with q, check bottom 8 bits
         break
 
 # release vid and close windows when loop ends 
