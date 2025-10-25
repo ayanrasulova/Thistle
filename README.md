@@ -41,7 +41,7 @@ To run the server, first run ```bash npm install ``` to install the npm dependen
 
 ## Challenges We Ran Into
 
-(insert here)
+We wanted to have our gestures be univesally acceptable, so cultural barriers were a little bit of a challenge to make sure we didn't use any possibly offensive gestures. 
 
 ## What We're Proud Of
 
