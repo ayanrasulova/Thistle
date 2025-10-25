@@ -19,23 +19,23 @@ These gestures are then transmitted in real-time via webcam to our JavaScript ca
 
 ## How To Use!
 
-Make sure you install the dependencies first:
-``` bash
-pip install dependencies.txt
+First you need to run the setup script
+
+***You must be using Python 3.12 for the necessary libraries to work***
+
+For Windows:
+```bash
+python setup.py
 ```
 
-If you are on Linux, make sure you create a virtual environment for your dependencies:
-```bash 
-sudo apt install python3-full python3-venv -y
-python3 -m venv ~/venv
-source ~/venv/bin/activate
-pip install dependencies.txt
+For Mac / Linux
+```bash
+python3 setup.py
 ```
 
-Then, type the following commands into the terminal: 
- ```bash
-# include steps here
-```
+If you are having issues with the script, ensure that whatever you are using to run this script is using the correct interpreter *(Python 3.12 in a virtual environment, this script should create the virtual environment for you but only if you start with a 3.12 interpreter)*
+
+
 
 ## Reflection/Next Steps:
 
