@@ -35,7 +35,7 @@ python3 setup.py
 
 If you are having issues with the script, ensure that whatever you are using to run this script is using the correct interpreter *(Python 3.12 in a virtual environment, this script should create the virtual environment for you but only if you start with a 3.12 interpreter)*
 
-
+If these commands are saying you're on the wrong Python version, try running it through your IDE interface (like Visual Studio Code)
 
 ## Reflection/Next Steps:
 
