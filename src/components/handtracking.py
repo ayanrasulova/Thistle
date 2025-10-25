@@ -5,6 +5,9 @@ import mediapipe as mp
 
 # import gesture detections..
 from handlandmarks import open_palm
+from handlandmarks import motion_detect
+from handlandmarks import swipe
+
 
 holistic_mp = mp.solutions.holistic # holistic hand recognition algorithm 
 mp_model = holistic_mp.Holistic(
@@ -49,23 +52,33 @@ while video.isOpened():
       results.left_hand_landmarks, 
       mp.solutions.hands.HAND_CONNECTIONS
     )
-    
-    # gesture recognition.. for now print
+
+    # ----------------------------------------------------------------------
+    # GESTURE RECOGNITION
+
     if results.right_hand_landmarks:
-        if open_palm(results.right_hand_landmarks):
-            cv2.putText(image, "right hand: OPEN PALM", (10, 150),
-            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2)
+        if swipe(results.right_hand_landmarks):
+            cv2.putText(image, "right hand: swipe", (10, 150),
+            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+        elif open_palm(results.right_hand_landmarks):
+            cv2.putText(image,"right hand: open", (10, 150),
+            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
         else:
             cv2.putText(image, "right hand: CLOSED / OTHER", (10, 150),
-            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2)
+            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
 
     if results.left_hand_landmarks:
-        if open_palm(results.left_hand_landmarks):
-            cv2.putText(image, "left hand: OPEN PALM", (10, 200),
-            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2)
+        if swipe(results.left_hand_landmarks):
+            cv2.putText(image, "left hand: swipe", (10, 200),
+            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+        elif open_palm(results.left_hand_landmarks):
+            cv2.putText(image,"left hand: open", (10, 150),
+            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
         else:
             cv2.putText(image, "left hand: CLOSED / OTHER", (10, 200),
-            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2)
+            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+
+    # -------------------------------------------------------------------------
 
     # time module to get frames per second, then display
     currentTime = time.time() 
