@@ -19,7 +19,7 @@ These gestures are then transmitted in real-time via webcam to our JavaScript ca
 
 ## How To Use!
 
-First you need to run the setup script
+First you need to run the setup script:
 
 ***You must be using Python 3.12 for the necessary libraries to work***
 
@@ -36,6 +36,8 @@ python3 setup.py
 If you are having issues with the script, ensure that whatever you are using to run this script is using the correct interpreter *(Python 3.12 in a virtual environment, this script should create the virtual environment for you but only if you start with a 3.12 interpreter)*
 
 If these commands are saying you're on the wrong Python version, try running it through your IDE interface (like Visual Studio Code)
+
+To run the server, first run ```bash npm install ``` to install the npm dependencies, then run ```bash npm run dev``` to start the server on your local host. 
 
 ## Reflection/Next Steps:
 
