@@ -31,6 +31,7 @@ python3 -m venv ~/venv
 source ~/venv/bin/activate
 pip install dependencies.txt
 ```
+If your imports are not working, make sure you change your interpreter on your IDE to match your virtual environment. 
 
 Then, type the following commands into the terminal: 
  ```bash
