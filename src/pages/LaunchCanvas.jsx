@@ -15,9 +15,8 @@ function LaunchCanvas() {
         {/* Right section: Webcam ABOVE controls */}
         <div className="right-panel">
           <div className="webcam-placeholder">
-            <p>📷 Webcam Feed</p>
             <img
-              src="http://localhost:5000/video_feed"
+              src="http://localhost:5000/video_feed" // call the live video feed!
               alt="Live Hand Tracking Feed"
               className="webcam-stream"
             />

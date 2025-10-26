@@ -1,5 +1,6 @@
 from flask import Flask, Response
 from flask import jsonify
+from flask_cors import CORS
 import cv2
 import time
 import mediapipe as mp
@@ -9,6 +10,7 @@ import json
 from handlandmarks import open_palm, swipe, point_thumb_in, point_thumb_out, rockstar, thumbs_up, fingers_crossed
 
 app = Flask(__name__)
+CORS(app) 
 
 # media pipe initializing
 mp_holistic = mp.solutions.holistic

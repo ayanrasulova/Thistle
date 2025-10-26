@@ -4,3 +4,4 @@ mediapipe
 asyncio
 websockets
 flask
+flask-cors
