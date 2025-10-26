@@ -68,7 +68,7 @@
             }}
             />
         </div>
-        <Container style={{ position: 'relative', zIndex: 1, paddingTop: '200px' }}>  
+        <Container style={{ position: 'relative', zIndex: 1, paddingTop: '220px' }}>  
                 <Stack gap={5}>
                     <div style={{ paddingBottom: '350px'}}>
                         <Stack direction="horizontal" gap={3} className="align-items-start">
