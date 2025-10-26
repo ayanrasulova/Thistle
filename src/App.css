@@ -206,6 +206,19 @@ p {
   backdrop-filter: blur(10px);
   color: white;
   height: 100%;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.gesture-section.hover-active h2 {
+  transform: translateY(-10px);
+  transition: transform 0.4s ease;
+}
+
+.gesture-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .gesture-card p {

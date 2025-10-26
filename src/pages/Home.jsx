@@ -239,7 +239,7 @@
                                             <Card.Img variant="top" src={img4} />
                                             <Card.Body>
                                                 <Card.Text>
-                                                Swipe with your <span className="gradient-text">Hands</span> to clear the canvas
+                                                Swipe with both of your <span className="gradient-text">Hands</span> to clear the canvas
                                                 </Card.Text>
                                             </Card.Body>
                                         </Card>
