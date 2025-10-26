@@ -4,9 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-<<<<<<< HEAD
 import { NavLink } from 'react-router-dom';
-=======
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -17,7 +15,6 @@ import img2 from "../assets/img_2.png";
 import img3 from "../assets/img_3.png";
 import img4 from "../assets/img_4.png";
 import img5 from "../assets/img_5.png";
->>>>>>> main
 import LiquidEther from '../components/ui/liquid-ether';
 import ChromaGrid from '../components/ui/chroma-grid';
 
