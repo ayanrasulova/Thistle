@@ -70,18 +70,18 @@ body {
   z-index: 1;
   padding-top: 320px; /* default for medium screens */
 
-  /* Larger screens — more top spacing */
+  /* larger screens */
   @media (min-width: 1200px) {
-    padding-top: 300px;
+    padding-top: 200px;
   }
 
-  @media (min-width: 1700px) {
+  @media (min-width: 1850px) {
     padding-top: 350px;
   }
 
-  /* Smaller screens — less top spacing */
+  /* smaller screens */
   @media (max-width: 768px) {
-    padding-top: 220px;
+    padding-top: 370px;
   }
 }
 
