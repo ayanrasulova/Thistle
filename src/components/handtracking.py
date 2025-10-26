@@ -77,7 +77,7 @@ def generate_frames():
                 gesture = "swipe"
 
             elif open_palm(results.right_hand_landmarks):
-                cv2.putText(image, "right hand: rockstar", (10, 150),
+                cv2.putText(image, "right hand: open_palm", (10, 150),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
                 gesture = "open_palm"
 
