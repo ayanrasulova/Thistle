@@ -80,12 +80,12 @@ def generate_frames():
                 gesture = "open_palm"
 
             elif point_thumb_in(results.right_hand_landmarks, "right"):
-                cv2.putText(image, "right hand: pointing up", (10, 150),
+                cv2.putText(image, "right hand: pointing - thumb in", (10, 150),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
                 gesture = "point_thumb_in"
 
             elif point_thumb_out(results.right_hand_landmarks, "right"):
-                cv2.putText(image, "right hand: pointing up", (10, 150),
+                cv2.putText(image, "right hand: pointing - thumb out", (10, 150),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
                 gesture = "point_thumb_out"
 
@@ -114,12 +114,12 @@ def generate_frames():
                 gesture = "open_palm"
 
             elif point_thumb_in(results.left_hand_landmarks, "left"):
-                cv2.putText(image, "left hand: pointing up", (10, 200),
+                cv2.putText(image, "left hand: pointing - thumb in", (10, 200),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
                 gesture = "point_thumb_in"
 
             elif point_thumb_out(results.left_hand_landmarks, "left"):
-                cv2.putText(image, "left hand: pointing up", (10, 200),
+                cv2.putText(image, "left hand: pointing - thumb out", (10, 200),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
                 gesture = "point_thumb_out"
 
