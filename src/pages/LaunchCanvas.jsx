@@ -1,22 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import DrawingBoard from "../components/DrawingBoard";
 import "../App.css";
 
 function LaunchCanvas() {
-  
+  const [clearTrigger, setClearTrigger] = useState(false);
+
+  const handleClearCanvas = () => {
+    // Flip the boolean to trigger useEffect in DrawingBoard
+    setClearTrigger((prev) => !prev);
+  };
+
   return (
     <div className="launch-container">
       <div className="workspace">
-        {/*canvas on left */}
         <div className="canvas-section">
-          <DrawingBoard /> {}
+          {/* Pass clearTrigger to DrawingBoard */}
+          <DrawingBoard clearTrigger={clearTrigger} />
         </div>
 
-        {/* webcam above controls */}
         <div className="right-panel">
           <div className="webcam-placeholder">
             <img
-              src="http://localhost:5000/video_feed" // call the live video feed!
+              src="http://localhost:5000/video_feed"
               alt="Live Hand Tracking Feed"
               className="webcam-stream"
             />
@@ -40,7 +45,11 @@ function LaunchCanvas() {
               <input type="range" min="1" max="20" defaultValue="5" />
             </div>
 
-            <button className="action-btn">Clear Canvas</button>
+            {/* Clear button triggers the state toggle */}
+            <button className="action-btn" onClick={handleClearCanvas}>
+              Clear Canvas
+            </button>
+
             <button className="action-btn">Save Drawing</button>
           </div>
         </div>
