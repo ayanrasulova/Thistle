@@ -9,6 +9,8 @@ Girls Hoo Hack 2025 Official Submission by Ayan Rasulova (GitHub: ayanrasulova),
 
 Generative AI has become more powerful over the last few years, and a lot of discourse within art communities involves the idea that artists with disabilities are not able to create art without the use of generating drawings through prompt engineering. As passionate artists and software developers, we wanted to challenge this notion, offering an accessible machine learning alternative for digital drawing beyond the constraints of a mouse, tablet, or physical device. 
 
+We chose the name Thistle because the thistle flower is a symbol of resilience — it thrives even in harsh conditions, standing tall despite hardship. That’s exactly how we see artists today: facing uncertainty, yet continuing to create and push the boundaries of expression.
+
 ## Features & How We Built It:
 
 <img src="./src/assets/opencv.png">
