@@ -6,7 +6,7 @@ import mediapipe as mp
 import json
 
 
-from handlandmarks import open_palm, motion_detect, swipe, point_up
+from handlandmarks import open_palm, swipe, point_thumb_in, point_thumb_out
 
 app = Flask(__name__)
 
@@ -59,56 +59,85 @@ def generate_frames():
             image, results.left_hand_landmarks, mp.solutions.hands.HAND_CONNECTIONS)
 
 
-        # checking which gesture 
+        # checking which gesture (also, right hand is actually left hand because canvas is flipped and vise versa)
+
+        # initialize these for double swipe features
+        right_swiped = False
+        left_swiped = False
 
         # right hand
         if results.right_hand_landmarks:
+
             if swipe(results.right_hand_landmarks):
-                cv2.putText(image, "right hand: swipe", (10, 150),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+                right_swiped = True
+                cv2.putText(image, "right hand: swipe", (10, 200),
+                cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
                 gesture = "swipe"
 
-            elif open_palm(results.right_hand_landmarks):
+            if open_palm(results.right_hand_landmarks):
                 cv2.putText(image, "right hand: open", (10, 150),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+                cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
                 gesture = "open_palm"
 
-            elif point_up(results.right_hand_landmarks):
+            elif point_thumb_in(results.right_hand_landmarks, "right"):
                 cv2.putText(image, "right hand: pointing up", (10, 150),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
-                gesture = "point_up"
+                cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+                gesture = "point_thumb_in"
+
+            elif point_thumb_out(results.right_hand_landmarks, "right"):
+                cv2.putText(image, "right hand: pointing up", (10, 150),
+                cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+                gesture = "point_thumb_out"
 
             else:
                 cv2.putText(image, "right hand: other", (10, 150),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+                cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
                 gesture = "other"
                 
+            # cursor & index tip detection
             index_tip = results.right_hand_landmarks.landmark[mp.solutions.hands.HandLandmark.INDEX_FINGER_TIP]
             cursor_x = int(index_tip.x * 640)  # convert from normalized to pixels
             cursor_y = int(index_tip.y * 480)
 
         # left hand 
         if results.left_hand_landmarks:
+
             if swipe(results.left_hand_landmarks):
+                left_swiped = True
                 cv2.putText(image, "left hand: swipe", (10, 200),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+                cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
                 gesture = "swipe"
 
             elif open_palm(results.left_hand_landmarks):
                 cv2.putText(image, "left hand: open", (10, 200),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+                cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
                 gesture = "open_palm"
 
-            elif point_up(results.left_hand_landmarks):
+            elif point_thumb_in(results.left_hand_landmarks, "left"):
                 cv2.putText(image, "left hand: pointing up", (10, 200),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
-                gesture = "point_up"
+                cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+                gesture = "point_thumb_in"
+
+            elif point_thumb_out(results.left_hand_landmarks, "left"):
+                cv2.putText(image, "left hand: pointing up", (10, 200),
+                cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+                gesture = "point_thumb_out"
 
             else:
                 cv2.putText(image, "left hand: other", (10, 200),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+                cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
                 gesture = "other"
 
+            # cursor & index tip detection
+            index_tip = results.left_hand_landmarks.landmark[mp.solutions.hands.HandLandmark.INDEX_FINGER_TIP]
+            cursor_x = int(index_tip.x * 640)  # convert from normalized to pixels
+            cursor_y = int(index_tip.y * 480)
+
+        if left_swiped and right_swiped:
+            cv2.putText(image, "DOUBLE SWIPE DETECTED!", (200, 400),
+            cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 255, 255), 3)
+            gesture = "double_swipe"
+                
         # fps 
         current_time = time.time()
         
@@ -153,5 +182,4 @@ def data():
 if __name__ == '__main__':
     print("starting flask video server on http://localhost:5000/video_feed")
     app.run(host='0.0.0.0', port=5000)
-
 
