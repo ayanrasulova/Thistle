@@ -148,7 +148,7 @@
                                 <h2>
                                     <span className="white-text">How it </span>
                                     <span className="gradient-text">Works</span>
-                                    <span className="gradient-text">.</span>
+                                    <span className="White-text">.</span>
                                 </h2>
                             </div>
                         <Container>
@@ -239,7 +239,7 @@
                                             <Card.Img variant="top" src={img4} />
                                             <Card.Body>
                                                 <Card.Text>
-                                                Swipe with your <span className="gradient-text">Hands</span> to clear the canvas
+                                                Swipe with both of your <span className="gradient-text">Hands</span> to clear the canvas
                                                 </Card.Text>
                                             </Card.Body>
                                         </Card>
