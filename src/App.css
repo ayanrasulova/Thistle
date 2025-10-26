@@ -465,7 +465,7 @@ p {
 #hero-model {
   position: absolute;
   top: 50%;
-  left: 30%; /* pushes model left */
+  left: 27%; /* pushes model left */
   transform: translate(-50%, -50%);
   z-index: 1;
   pointer-events: none; /* leave scroll + clicks to elements above */
