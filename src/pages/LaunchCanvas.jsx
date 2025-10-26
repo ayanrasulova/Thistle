@@ -2,17 +2,18 @@ import React from "react";
 import "../App.css";
 
 function LaunchCanvas() {
+  
   return (
     <div className="launch-container">
       <div className="workspace">
-        {/* Left section: Canvas */}
+        {/*canvas on left */}
         <div className="canvas-section">
           <div className="canvas-placeholder">
             <p>🎨 Drawing Canvas Placeholder</p>
           </div>
         </div>
 
-        {/* Right section: Webcam ABOVE controls */}
+        {/* webcam above controls */}
         <div className="right-panel">
           <div className="webcam-placeholder">
             <img
