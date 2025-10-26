@@ -5,9 +5,7 @@
     import Col from 'react-bootstrap/Col';
     import Card from 'react-bootstrap/Card';
     import { NavLink } from 'react-router-dom';
-    import { useState, useEffect } from 'react';
-    import { motion, AnimatePresence } from "framer-motion";
-    import { useInView } from "react-intersection-observer";
+    import { motion } from "framer-motion";
     import '../App.css'
     import img0 from "../assets/img_0.png";
     import img1 from "../assets/img_1.png";
@@ -16,7 +14,6 @@
     import img4 from "../assets/img_4.png";
     import img5 from "../assets/img_5.png";
     import LiquidEther from '../components/ui/liquid-ether';
-    import ChromaGrid from '../components/ui/chroma-grid';
     import '@google/model-viewer';
 
     // const missionItems = [
@@ -71,85 +68,141 @@
         </div>
 
         <div className="hero-section">
-            <div className="hand-model-container">
-                <model-viewer
-                    id="hero-model"
-                    src="/hand.glb"
-                    alt="3D Hand Model"
-                    auto-rotate
-                    camera-orbit="0deg 75deg 100m"
-                    rotation-per-second="7deg"
-                    disable-zoom
-                    exposure="1.2"
-                    environment-image="neutral"
-                    style={{ width: "100%", height: "80vh" }}
-                ></model-viewer>
-            </div>
+            <motion.div
+                    initial={{ opacity: 0, y: 60 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 2, delay: 0.2 }}
+                    className="w-100 h-100"
+            >
+                <div className="hand-model-container">
+                    <model-viewer
+                        id="hero-model"
+                        src="/hand.glb"
+                        alt="3D Hand Model"
+                        auto-rotate
+                        camera-orbit="0deg 75deg 100m"
+                        rotation-per-second="7deg"
+                        disable-zoom
+                        exposure="1.2"
+                        environment-image="neutral"
+                        style={{ width: "100%", height: "80vh" }}
+                    ></model-viewer>
+                </div>
+            </motion.div>
 
             <div className="hero-text">
-                <h1>
-                <span className="white-text">Welcome to </span>
-                <span className="gradient-text">Thistle</span>
-                <span className="white-text">.</span>
-                </h1>
-                <p>
-                    Thistle re-imagines digital art accessibility by turning your hand movements into 
-                    brushstrokes — no tablet, mouse, or stylus needed. 
-                </p>
-                <div className="hero-buttons">
-                    <Button as={NavLink} to='/launch-canvas' variant="outline-thistle" size="lg">
-                        Launch Canvas
-                    </Button>
-                    <Button as={NavLink} to='/about-us' variant="outline-thistle" size="lg">
-                        About Us
-                    </Button>
-                </div>
+                <motion.div
+                    initial={{ opacity: 0, y: 60 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 1.2, delay: 0.2 }}
+                    className="w-100 h-100"
+                >
+                    <h1>
+                    <span className="white-text">Welcome to </span>
+                    <span className="gradient-text">Thistle</span>
+                    <span className="white-text">.</span>
+                    </h1>
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, y: 60 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 1.2, delay: 0.4 }}
+                    className="w-100 h-100"
+                >
+                    <p>
+                        Thistle re-imagines digital art accessibility by turning your hand movements into 
+                        brushstrokes — no tablet, mouse, or stylus needed. 
+                    </p>
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, y: 60 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 1.2, delay: 0.6 }}
+                    className="w-100 h-100"
+                >
+                    <div className="hero-buttons">
+                        <Button as={NavLink} to='/launch-canvas' variant="outline-thistle" size="lg">
+                            Launch Canvas
+                        </Button>
+                        <Button as={NavLink} to='/about-us' variant="outline-thistle" size="lg">
+                            About Us
+                        </Button>
+                    </div>
+                </motion.div>
             </div>
         </div>
 
         <Container className = "home-container-main">  
                 <Stack gap={5}>
                         <div className="mission-section" style={{ marginTop: '50px', marginBottom: '250px' }}>
-                        <h2 className="welcome-heading text-center mb-4">
-                            <span className="white-text">Our </span>
-                            <span className="gradient-text">Mission</span>
-                            <span className="white-text">.</span>
-                        </h2>
+                        <motion.div
+                            initial={{ opacity: 0, y: 60 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.3 }}
+                            transition={{ duration: 0.75, delay: 0.6 }}
+                            className="w-100 h-100"
+                        >   
+                            <h2 className="welcome-heading text-center mb-4">
+                                <span className="white-text">Our </span>
+                                <span className="gradient-text">Mission</span>
+                                <span className="white-text">.</span>
+                            </h2>
+                        </motion.div>
 
-                        <Container>
-                            <Row className="justify-content-center">
-                            <Col md={10} lg={8}>
-                                <Card 
-                                className="mission-card shadow-lg border-0 p-4"
-                                style={{
-                                    background: 'rgba(255, 255, 255, 0.08)',
-                                    backdropFilter: 'blur(12px)',
-                                    borderRadius: '16px',
-                                    border: '1px solid rgba(255, 255, 255, 0.15)',
-                                }}
-                                >
-                                <Card.Body>
-                                    <Card.Text className="text-light fs-5 lh-lg text-center">
-                                    <span className="gradient-text">Thistle</span> exists to redefine the boundaries of accessible digital art. 
-                                    Using intuitive motion-based interactions instead of traditional tools like styluses or mice, 
-                                    our mission is to empower individuals of all abilities to express themselves creatively. 
-                                    <br /><br />
-                                    By blending human motion, computer vision, and generative design, we’re crafting a future 
-                                    where creativity is limited only by imagination.
-                                    </Card.Text>
-                                </Card.Body>
-                                </Card>
-                            </Col>
-                            </Row>
-                        </Container>
+                        <motion.div
+                            initial={{ opacity: 0, y: 60 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.3 }}
+                            transition={{ duration: 0.75, delay: 0.6 }}
+                            className="w-100 h-100"
+                        >
+                            <Container>
+                                <Row className="justify-content-center">
+                                <Col md={10} lg={8}>
+                                    <Card 
+                                    className="mission-card shadow-lg border-0 p-4"
+                                    style={{
+                                        background: 'rgba(255, 255, 255, 0.08)',
+                                        backdropFilter: 'blur(12px)',
+                                        borderRadius: '16px',
+                                        border: '1px solid rgba(255, 255, 255, 0.15)',
+                                    }}
+                                    >
+                                    <Card.Body>
+                                        <Card.Text className="text-light fs-5 lh-lg text-center">
+                                        <span className="gradient-text">Thistle</span> exists to redefine the boundaries of accessible digital art. 
+                                        Using intuitive motion-based interactions instead of traditional tools like styluses or mice, 
+                                        our mission is to empower individuals of all abilities to express themselves creatively. 
+                                        <br /><br />
+                                        By blending human motion, computer vision, and generative design, we’re crafting a future 
+                                        where creativity is limited only by imagination.
+                                        </Card.Text>
+                                    </Card.Body>
+                                    </Card>
+                                </Col>
+                                </Row>
+                            </Container>
+                        </motion.div>
                         </div>
                     <div>
                             <div className="mission-section" style={{ marginTop: '50px', marginBottom: '20px' }}>
+                                <motion.div
+                                        initial={{ opacity: 0, y: 60 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true, amount: 0.3 }}
+                                        transition={{ duration: 0.75, delay: 0.6 }}
+                                        className="w-100 h-100"
+                                >
                                 <h2>
                                     <span className="white-text">How it </span>
                                     <span className="gradient-text">Works</span>
                                     <span className="White-text">.</span>
                                 </h2>
+                                </motion.div>
                             </div>
                         <Container>
                             <Row>

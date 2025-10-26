@@ -8,6 +8,7 @@ import ja from "../assets/jack.png";
 import ay from "../assets/ayan.png";
 import LiquidEther from '../components/ui/liquid-ether';
 import { useRef } from "react";
+import { motion } from "framer-motion";
 import '../App.css'
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
@@ -93,52 +94,68 @@ function MeetTheTeam() {
             </div>
 
             <Container style={{ position: 'relative', zIndex: 1, paddingTop: '80px', marginBottom: '100px', textAlign: 'center' }}>
-                <h1 className="welcome-heading text-center mb-5">
-                  <span className="white-text">Meet The </span>
-                  <span className="gradient-text">Team</span>
-                  <span className="white-text">.</span>
-                </h1>
-                <Row className="justify-content-center">
-                    {team.map((member, index) => (
-                        <Col key={index} xs={6} sm={6} md={3} className="mb-4">
-                            <div
-                                ref={el => cardRefs.current[index] = el}
-                                className="team-card p-3"
-                                style={{
-                                    background: 'rgba(255, 255, 255, 0.08)',
-                                    backdropFilter: 'blur(12px)',
-                                    borderRadius: '16px',
-                                    textAlign: 'center',
-                                    transition: 'transform 0.2s ease',
-                                    cursor: 'pointer',
-                                }}
-                                onMouseMove={(e) => handleMouseMove(e, index)}
-                                onMouseLeave={() => handleMouseLeave(index)}
-                            >
-                                <img 
-                                    src={member.img} 
-                                    alt={member.name} 
+                <motion.div
+                    initial={{ opacity: 0, y: 60 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 1.2, delay: 0.2 }}
+                    className="w-100 h-100"
+                >
+                    <h1 className="welcome-heading text-center mb-5">
+                    <span className="white-text">Meet The </span>
+                    <span className="gradient-text">Team</span>
+                    <span className="white-text">.</span>
+                    </h1>
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, y: 60 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 1.2, delay: 0.4 }}
+                    className="w-100 h-100"
+                >
+                    <Row className="justify-content-center">
+                        {team.map((member, index) => (
+                            <Col key={index} xs={6} sm={6} md={3} className="mb-4">
+                                <div
+                                    ref={el => cardRefs.current[index] = el}
+                                    className="team-card p-3"
                                     style={{
-                                        width: '100%',
-                                        height: 'auto',
-                                        marginBottom: '10px',
-                                        borderRadius: '12px',
-                                        pointerEvents: 'none'
+                                        background: 'rgba(255, 255, 255, 0.08)',
+                                        backdropFilter: 'blur(12px)',
+                                        borderRadius: '16px',
+                                        textAlign: 'center',
+                                        transition: 'transform 0.2s ease',
+                                        cursor: 'pointer',
                                     }}
-                                />
-                                <h5 className="text-light mt-2">{member.name}</h5>
-                                <div style={{ marginTop: '8px', display: 'flex', justifyContent: 'center', gap: '12px' }}>
-                                    <a href={member.github} target="_blank" rel="noopener noreferrer" style={{ color: '#fff', fontSize: '1.2rem' }}>
-                                        <FaGithub />
-                                    </a>
-                                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer" style={{ color: '#0A66C2', fontSize: '1.2rem' }}>
-                                        <FaLinkedin />
-                                    </a>
+                                    onMouseMove={(e) => handleMouseMove(e, index)}
+                                    onMouseLeave={() => handleMouseLeave(index)}
+                                >
+                                    <img 
+                                        src={member.img} 
+                                        alt={member.name} 
+                                        style={{
+                                            width: '100%',
+                                            height: 'auto',
+                                            marginBottom: '10px',
+                                            borderRadius: '12px',
+                                            pointerEvents: 'none'
+                                        }}
+                                    />
+                                    <h5 className="text-light mt-2">{member.name}</h5>
+                                    <div style={{ marginTop: '8px', display: 'flex', justifyContent: 'center', gap: '12px' }}>
+                                        <a href={member.github} target="_blank" rel="noopener noreferrer" style={{ color: '#fff', fontSize: '1.2rem' }}>
+                                            <FaGithub />
+                                        </a>
+                                        <a href={member.linkedin} target="_blank" rel="noopener noreferrer" style={{ color: '#0A66C2', fontSize: '1.2rem' }}>
+                                            <FaLinkedin />
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                        </Col>
-                    ))}
-                </Row>
+                            </Col>
+                        ))}
+                    </Row>
+                </motion.div>
             </Container>
         </div>
     );
