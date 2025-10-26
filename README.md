@@ -27,7 +27,7 @@ Thistle utilizes OpenCV and MediaPipe Hands to detect and track hand signals thr
 - long swipe with both hands (🖐️) to clear the canvas
 - thumbs up (👍) to save a screenshot of your drawing :)
 
-These gestures are then transmitted in real-time via webcam using Flask to stream live frames (with ```/video_feed```) to run on localhost. We also export all live information on both gestures and x & y coordinates to ```gesture_data.json```, which we parse through to map different gestures to actions on our JavaScript canvas application. We then render the canvas on our front-end website (build with React, Node, Bootstrap, Motion, Vite, CSS, HTML, Tailwind).
+These gestures are then transmitted in real-time via webcam using Flask to stream live frames (with ```/video_feed```) to run on localhost. We also export all live information on both gestures and x & y coordinates to ```gesture_data.json```, which we parse through to map different gestures to actions on our JavaScript canvas application. We then render the canvas on our front-end webapp (build with React, Node, Bootstrap, Motion, Vite, CSS, HTML, Tailwind).
 
 ## Run Instructions
 
