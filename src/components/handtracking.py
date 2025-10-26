@@ -6,7 +6,6 @@ import mediapipe as mp
 import json
 
 
-# Import your existing gesture detection helpers
 from handlandmarks import open_palm, motion_detect, swipe, point_up
 
 app = Flask(__name__)
@@ -30,7 +29,7 @@ cursor_x = 0
 cursor_y = 0
 gesture = ""
 
-data = {
+data = { # dictionary for json
     "x": cursor_x,
     "y": cursor_y,
     "gesture": gesture
@@ -62,19 +61,23 @@ def generate_frames():
 
         # checking which gesture 
 
+        # right hand
         if results.right_hand_landmarks:
             if swipe(results.right_hand_landmarks):
                 cv2.putText(image, "right hand: swipe", (10, 150),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
                 gesture = "swipe"
+
             elif open_palm(results.right_hand_landmarks):
                 cv2.putText(image, "right hand: open", (10, 150),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
                 gesture = "open_palm"
+
             elif point_up(results.right_hand_landmarks):
                 cv2.putText(image, "right hand: pointing up", (10, 150),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
                 gesture = "point_up"
+
             else:
                 cv2.putText(image, "right hand: other", (10, 150),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
@@ -84,19 +87,23 @@ def generate_frames():
             cursor_x = int(index_tip.x * 640)  # convert from normalized to pixels
             cursor_y = int(index_tip.y * 480)
 
+        # left hand 
         if results.left_hand_landmarks:
             if swipe(results.left_hand_landmarks):
                 cv2.putText(image, "left hand: swipe", (10, 200),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
                 gesture = "swipe"
+
             elif open_palm(results.left_hand_landmarks):
                 cv2.putText(image, "left hand: open", (10, 200),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
                 gesture = "open_palm"
+
             elif point_up(results.left_hand_landmarks):
                 cv2.putText(image, "left hand: pointing up", (10, 200),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
                 gesture = "point_up"
+
             else:
                 cv2.putText(image, "left hand: other", (10, 200),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
@@ -126,11 +133,13 @@ def generate_frames():
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
 
+# sending to video feed
 @app.route('/video_feed')
 def video_feed():
     return Response(generate_frames(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
+# updating json file
 @app.route("/data")
 def data():
     try:
