@@ -1,82 +1,121 @@
-# open cv 
-
+from flask import Flask, Response
 import cv2
 import time
-import os
 import mediapipe as mp
+import json
 
-holistic_mp = mp.solutions.holistic # holistic hand recognition algorithm 
-mp_model = holistic_mp.Holistic(
+# Import your existing gesture detection helpers
+from handlandmarks import open_palm, motion_detect, swipe, point_up
+
+app = Flask(__name__)
+
+# media pipe initializing
+mp_holistic = mp.solutions.holistic
+mp_hands = mp.solutions.hands
+mp_draw = mp.solutions.drawing_utils
+
+mp_model = mp_holistic.Holistic(
     min_detection_confidence=0.5,
     min_tracking_confidence=0.5
 )
 
-mp_draw = mp.solutions.drawing_utils # draw detected points 
-
-video = cv2.VideoCapture(0) # we are using 1 webcam only, so argument = 0
+video = cv2.VideoCapture(0)
 video.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 video.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
-if not video.isOpened():
-    print("video not opening, check webcam")
-    exit()
+# initializing for the websocket
+cursor_x = 0
+cursor_y = 0
+gesture = ""
 
-previousTime = 0 #initialize for fps
-while video.isOpened():
-    ret, frame = video.read()# reads frame by frame    
+data = {
+    "x": cursor_x,
+    "y": cursor_y,
+    "gesture": gesture
+}
 
-    image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB) # color conversion BGR to RGB
+# added everything to a function
+def generate_frames():
+    global cursor_x, cursor_y, gesture
+    prev_time = 0
 
-    # predictions made based on holistic model
-    image.flags.writeable = False
-    results = mp_model.process(image)
-    image.flags.writeable = True
+    while video.isOpened():
+        ret, frame = video.read()
+        if not ret:
+            break
 
-    image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR) # color conversion back from RGB to BGR
+        frame = cv2.flip(frame, 1)
+        image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        image.flags.writeable = False
+        results = mp_model.process(image)
+        image.flags.writeable = True
+        image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
 
-    # facial key points (we will use hands for now but can also map to face)
-    mp_draw.draw_landmarks(
-      image,
-      results.face_landmarks,
-      holistic_mp.FACEMESH_CONTOURS,
-      mp_draw.DrawingSpec(
-        color=(255,0,255),
-        thickness=1,
-        circle_radius=1
-      ),
-      mp_draw.DrawingSpec(
-        color=(0,255,255),
-        thickness=1,
-        circle_radius=1
-      )
-    )
+        # draw landmarks
+        mp_draw.draw_landmarks(
+            image, results.right_hand_landmarks, mp.solutions.hands.HAND_CONNECTIONS)
+        mp_draw.draw_landmarks(
+            image, results.left_hand_landmarks, mp.solutions.hands.HAND_CONNECTIONS)
 
-    # right hand key points
-    mp_draw.draw_landmarks(
-      image, 
-      results.right_hand_landmarks, 
-      mp.solutions.hands.HAND_CONNECTIONS
-    )
 
-    # left hand key points 
-    mp_draw.draw_landmarks(
-      image, 
-      results.left_hand_landmarks, 
-      mp.solutions.hands.HAND_CONNECTIONS
-    )
-    
-    # time module to get frames per second, then display
-    currentTime = time.time() 
-    fps = 1 / (currentTime-previousTime)
-    previousTime = currentTime
-    cv2.putText(image, str(int(fps))+"FPS", (10, 70), cv2.FONT_HERSHEY_COMPLEX, 1, (0,255,0), 2)
+        # checking which gesture 
 
-    # display img
-    cv2.imshow("Facial and Hand Landmarks", image)
+        if results.right_hand_landmarks:
+            if swipe(results.right_hand_landmarks):
+                cv2.putText(image, "right hand: swipe", (10, 150),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+                gesture = "swipe"
+            elif open_palm(results.right_hand_landmarks):
+                cv2.putText(image, "right hand: open", (10, 150),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+                gesture = "open_palm"
+            elif point_up(results.right_hand_landmarks):
+                cv2.putText(image, "right hand: pointing up", (10, 150),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+                gesture = "point_up"
+            else:
+                cv2.putText(image, "right hand: CLOSED / OTHER", (10, 150),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
 
-    if cv2.waitKey(5) & 0xFF == ord('q'): # exit with q, check bottom 8 bits
-        break
+        if results.left_hand_landmarks:
+            if swipe(results.left_hand_landmarks):
+                cv2.putText(image, "left hand: swipe", (10, 200),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+                gesture = "swipe"
+            elif open_palm(results.left_hand_landmarks):
+                cv2.putText(image, "left hand: open", (10, 200),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+                gesture = "open_palm"
+            elif point_up(results.left_hand_landmarks):
+                cv2.putText(image, "left hand: pointing up", (10, 200),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+                gesture = "point_up"
+            else:
+                cv2.putText(image, "left hand: CLOSED / OTHER", (10, 200),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
 
-# release vid and close windows when loop ends 
-video.release()
-cv2.destroyAllWindows() # end windows and 
+        # fps 
+
+        current_time = time.time()
+        
+        fps = 1 / (current_time - prev_time) if prev_time else 0
+        prev_time = current_time
+        cv2.putText(image, f"{int(fps)} FPS", (10, 70),
+        cv2.FONT_HERSHEY_COMPLEX, 1, (0, 255, 0), 2)
+
+        _, buffer = cv2.imencode('.jpg', image)
+        frame_bytes = buffer.tobytes()
+
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
+
+@app.route('/video_feed')
+def video_feed():
+    return Response(generate_frames(),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
+
+# run the server
+if __name__ == '__main__':
+    print("starting flask video server on http://localhost:5000/video_feed")
+    app.run(host='0.0.0.0', port=5000)
+
