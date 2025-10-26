@@ -1,5 +1,3 @@
-import { defaultClientConditions } from "vite";
-
 const canvas = document.getElementById('drawing-board');
 const toolbar = document.getElementById('toolbar');
 const ctx = canvas.getContext('2d');
@@ -46,7 +44,7 @@ async function checkGestureData() {
 
 
 // Poll every interval ms 
-setInterval(checkGestureData, 50);
+setInterval(checkGestureData, 100);
 
 let pastShape = "";
 function handleJsonChange(newData) {
@@ -77,32 +75,24 @@ function handleJsonChange(newData) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     pastShape = 'swipe';
   }
-  if (shape === 'point_thumb_out'){
-    if (pastShape === 'point_thumb_out'){
-        // complete the line from past point to current point
-        if(!isPainting) {
-        }
-        else {
-
-            // set the pen parameters
-            ctx.lineWidth = lineWidth;
-            ctx.lineCap = 'round';
-
-            // make a line to the new point!
-            ctx.lineTo(x - canvasOffsetX, y);
-            ctx.stroke();
-        }
+  if (shape === 'point_thumb_out') {
+    if (pastShape !== 'point_thumb_out') {
+      // starting a new stroke
+      isPainting = true;
+      ctx.beginPath();
+      ctx.moveTo(x - canvasOffsetX, y);
     }
-    else {
-        // start a drawing point here
-        isPainting = true;
-        startX = x;
-        startY = y;
-    }
-
-    // update previous state
-    pastShape = 'point_thumb_out';
+     else if (isPainting) {
+      // continue the stroke
+      ctx.lineWidth = lineWidth;
+      ctx.lineCap = 'round';
+      ctx.lineTo(x - canvasOffsetX, y);
+      ctx.stroke();
   }
+
+  pastShape = 'point_thumb_out';
+}
+
   if (shape === 'rockstar') {
     isErasing = true;
     ctx.strokeStyle = '#ffff';
