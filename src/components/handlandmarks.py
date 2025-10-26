@@ -72,8 +72,27 @@ def swipe(hand_landmarks):
     return None
 
 # mouse up
-def point_up():
-    pass
+def point_up(hand_landmarks):
+    thumb_tip = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP]
+    index_tip = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP]
+    middle_tip = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_TIP]
+    ring_tip = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_TIP]
+    pinky_tip = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_TIP]
+
+    def dist(a, b): # distance between landmarks helper func
+        return math.hypot(a.x - b.x, a.y - b.y)
+    
+    index_knuckle = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_MCP]
+    thumb_ip = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_IP]
+
+    # true if finger tips above thumb
+    index_above_thumb = index_tip.y < thumb_tip.y and index_tip.y < index_knuckle.y
+    fingers_below_index = middle_tip.y > thumb_tip.y and ring_tip.y > thumb_tip.y and pinky_tip.y > thumb_tip.y
+
+    thumb_index_close = dist(thumb_tip, index_tip) < 0.07  # tweak threshold if needed
+    thumb_inline = abs(thumb_tip.x - index_knuckle.x) < 0.1
+
+    return (index_above_thumb and fingers_below_index and thumb_inline and thumb_index_close) # and thumb_in
 
 # mouse down
 def point_up_thumb_out():
@@ -86,4 +105,7 @@ def thumbs_up():
     pass
 
 def rockstar():
+    pass
+
+def coordinates():
     pass
