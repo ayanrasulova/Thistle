@@ -127,19 +127,53 @@ def point_thumb_out(hand_landmarks, side):
     else: 
         return False
 
+def fingers_crossed(hand_landmarks, side):
+    index_tip = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP]
+    middle_tip = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_TIP]
+    ring_tip = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_TIP]
+    pinky_tip = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_TIP]
+    thumb_tip = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP]
 
-# mouse down
-def point_up_thumb_out():
+    # "left x"
+    thumb_position_x = thumb_tip.x > middle_tip.x and thumb_tip.x > ring_tip.x and thumb_tip.x > pinky_tip.x and thumb_tip.x > index_tip.x
+    index_position_x = index_tip.x < thumb_tip.x and index_tip.x > middle_tip.x and index_tip.x > ring_tip.x and index_tip.x > pinky_tip.x
+
+    thumb_position_x_right = thumb_tip.x < middle_tip.x and thumb_tip.x < ring_tip.x and thumb_tip.x < pinky_tip.x and thumb_tip.x < index_tip.x
+    index_position_x_right = index_tip.x > thumb_tip.x and index_tip.x < middle_tip.x and index_tip.x < ring_tip.x and index_tip.x < pinky_tip.x
+
+    thumb_position_y = thumb_tip.y < middle_tip.y and thumb_tip.y < ring_tip.y and thumb_tip.y < pinky_tip.y
+
+    if side == "right":
+        return thumb_position_x_right and index_position_x_right
+        
+    if side == "left":
+        return thumb_position_x and index_position_x and thumb_position_y
+    
+
     pass
 
-def fingers_crossed():
-    pass
+def thumbs_up(hand_landmarks):
+    index_tip = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP]
+    pinky_tip = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_TIP]
+    middle_tip = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_TIP]
+    ring_tip = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_TIP]
+    pinky_tip = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_TIP]
+    thumb_tip = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP]
 
-def thumbs_up():
-    pass
+    thumb_above = thumb_tip.y < index_tip.y and thumb_tip.y < pinky_tip.y and thumb_tip.y < ring_tip.y and thumb_tip.y < middle_tip.y
 
-def rockstar():
-    pass
+    return (thumb_above)
 
-def coordinates():
-    pass
+def rockstar(hand_landmarks):
+    index_tip = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP]
+    pinky_tip = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_TIP]
+    middle_tip = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_TIP]
+    ring_tip = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_TIP]
+    pinky_tip = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_TIP]
+    thumb_tip = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP]
+
+    index_above = index_tip.y < middle_tip.y and index_tip.y < ring_tip.y and index_tip.y < thumb_tip.y
+    pinky_above = pinky_tip.y < middle_tip.y and pinky_tip.y < ring_tip.y and pinky_tip.y < thumb_tip.y
+    middle_ring_below_thumb = middle_tip.y > thumb_tip.y and ring_tip.y > thumb_tip.y
+
+    return index_above and pinky_above and middle_ring_below_thumb
