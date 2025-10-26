@@ -1,11 +1,11 @@
 # Welcome to Thistle :art: :point_up_2: 
-**Re-imagining digital art accessibility by turning your hand movements into brushstrokes— no tablet, mouse, or stylus needed.**
+**Re-imagining digital art accessibility by turning your hand movements into brushstrokes with AI— no tablet, mouse, or stylus needed.**
 
 Girls Hoo Hack 2025 Official Submission by Ayan Rasulova (GitHub: ayanrasulova), Emilie Deadman (GitHub: echiino), Amelia Chen, Jack Ellis (GitHub: jackawackadoo)
 
 ## Inspiration:
 
-Generative AI has become more powerful over the last few years, and a lot of discourse within art communities involves the idea that artists with disabilities are not able to create art without the use of generating drawings through prompt engineering. As passionate artists and software developers, we wanted to challenge this notion, offering an accessible alternative for digital drawing beyond the constraints of a mouse, tablet, or physical device. 
+Generative AI has become more powerful over the last few years, and a lot of discourse within art communities involves the idea that artists with disabilities are not able to create art without the use of generating drawings through prompt engineering. As passionate artists and software developers, we wanted to challenge this notion, offering an accessible machine learning alternative for digital drawing beyond the constraints of a mouse, tablet, or physical device. 
 
 ## Features & How We Built It:
 
