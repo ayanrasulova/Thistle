@@ -134,15 +134,20 @@ def fingers_crossed(hand_landmarks, side):
     pinky_tip = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_TIP]
     thumb_tip = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP]
 
+    # "left x"
     thumb_position_x = thumb_tip.x > middle_tip.x and thumb_tip.x > ring_tip.x and thumb_tip.x > pinky_tip.x and thumb_tip.x > index_tip.x
     index_position_x = index_tip.x < thumb_tip.x and index_tip.x > middle_tip.x and index_tip.x > ring_tip.x and index_tip.x > pinky_tip.x
 
-    thumb_position_y = thumb_tip.y < middle_tip.y and thumb_tip.y < ring_tip.y 
+    thumb_position_x_right = thumb_tip.x < middle_tip.x and thumb_tip.x < ring_tip.x and thumb_tip.x < pinky_tip.x and thumb_tip.x < index_tip.x
+    index_position_x_right = index_tip.x > thumb_tip.x and index_tip.x < middle_tip.x and index_tip.x < ring_tip.x and index_tip.x < pinky_tip.x
 
-    #if side = "right":
+    thumb_position_y = thumb_tip.y < middle_tip.y and thumb_tip.y < ring_tip.y and thumb_tip.y < pinky_tip.y
+
+    if side == "right":
+        return thumb_position_x_right and index_position_x_right
         
-    #if side = "left":
-        #return thumb_position_x and index_position_x
+    if side == "left":
+        return thumb_position_x and index_position_x and thumb_position_y
     
 
     pass
