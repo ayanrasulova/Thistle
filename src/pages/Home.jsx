@@ -5,8 +5,17 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import { NavLink } from 'react-router-dom';
-import placeholder from '../assets/placeholder.gif';
 import LiquidEther from '../components/ui/liquid-ether';
+import ChromaGrid from '../components/ui/chroma-grid';
+
+const missionItems = [
+  { image: "", title: "Text Placeholder 1", subtitle: "Subtitle", handle: "", borderColor: "#3B82F6", gradient: "linear-gradient(145deg, #3B82F6, #000)", url: "#" },
+  { image: "", title: "Image Placeholder 1", subtitle: "Subtitle", handle: "", borderColor: "#10B981", gradient: "linear-gradient(180deg, #10B981, #000)", url: "#" },
+  { image: "", title: "Text Placeholder 2", subtitle: "Subtitle", handle: "", borderColor: "#F59E0B", gradient: "linear-gradient(145deg, #F59E0B, #000)", url: "#" },
+  { image: "", title: "Image Placeholder 2", subtitle: "Subtitle", handle: "", borderColor: "#EF4444", gradient: "linear-gradient(180deg, #EF4444, #000)", url: "#" },
+  { image: "", title: "Text Placeholder 3", subtitle: "Subtitle", handle: "", borderColor: "#8B5CF6", gradient: "linear-gradient(145deg, #8B5CF6, #000)", url: "#" },
+  { image: "", title: "Image Placeholder 3", subtitle: "Subtitle", handle: "", borderColor: "#14B8A6", gradient: "linear-gradient(180deg, #14B8A6, #000)", url: "#" },
+];
 
 
 function Home() {
@@ -101,33 +110,15 @@ function Home() {
                     </h2>
 
                     {/* Cards side by side */}
-                    <Container>
-                        <Row className="justify-content-center g-4" style={{ display: 'flex', alignItems: 'stretch' }}>
-                        {/* Card 1: Blurb */}
-                        <Col xs={12} md={6}>
-                            <Card className="mission-card" style={{ flex: 1 }}>
-                            <Card.Body>
-                                <p>
-                                Generative AI has become more powerful over the last few years, and a lot of discourse 
-                                within art communities involves the idea that artists with disabilities are not able to 
-                                create art without the use of generating drawings through prompt engineering. As passionate 
-                                artists and software developers, we wanted to challenge this notion, offering an accessible 
-                                alternative for digital drawing beyond the constraints of a mouse, tablet, or physical device.
-                                </p>
-                            </Card.Body>
-                            </Card>
-                        </Col>
-
-                        {/* Card 2: Image placeholder */}
-                        <Col xs={12} md={6} style={{ display: 'flex' }}>
-                            <Card className="mission-card" style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <Card.Body>
-                                <p style={{ color: 'rgba(255,255,255,0.5)' }}>Image Placeholder</p>
-                            </Card.Body>
-                            </Card>
-                        </Col>
-                        </Row>
-                    </Container>
+                    <div style={{ position: 'relative', minHeight: '600px', marginTop: '30px' }}>
+                        <ChromaGrid
+                            items={missionItems}
+                            radius={300}
+                            damping={0.45}
+                            fadeOut={0.6}
+                            ease="power3.out"
+                        />
+                        </div>
                     </div>
                     <div>
                     <Stack>

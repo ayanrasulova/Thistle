@@ -11,16 +11,17 @@
     "tailwind:init": "tailwindcss init -p"
   },
   "dependencies": {
-    "bootstrap": "^5.3.8",
     "@tailwindcss/vite": "^4.1.16",
+    "bootstrap": "^5.3.8",
     "clsx": "^2.1.1",
+    "gsap": "^3.13.0",
     "motion": "^12.23.24",
     "react": "^19.1.1",
     "react-bootstrap": "^2.10.10",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.9.4",
-    "tailwindcss": "^4.1.16",
     "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.16",
     "three": "^0.180.0"
   },
   "devDependencies": {
