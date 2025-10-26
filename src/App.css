@@ -140,6 +140,11 @@ p {
     linear-gradient(90deg, #8FD4CB, #9EFF6E) border-box !important;
 }
 
+.mission-section {
+  text-align: center;
+  transition: transform 0.4s ease, margin-top 0.4s ease;
+}
+
 .mission-card {
   background-color: rgba(255, 255, 255, 0.2) !important; /* 20% opacity */
   border: 1px solid rgba(255, 255, 255, 0.3) !important;
@@ -148,6 +153,19 @@ p {
   backdrop-filter: blur(10px);
   color: white;
   margin-bottom: 50px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border-radius: 20px;
+  overflow: hidden;
+  }
+
+.mission-section.hover-active h2 {
+  transform: translateY(-10px);
+  transition: transform 0.4s ease;
+}
+
+.mission-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .mission-card p {
@@ -157,7 +175,6 @@ p {
 
 .gesture-card {
   background-color: rgba(255, 255, 255, 0.2) !important; /* 20% opacity */
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
   border-radius: 15px !important;
   padding: 20px;
   backdrop-filter: blur(10px);
