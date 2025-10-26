@@ -5,20 +5,59 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import placeholder from '../assets/placeholder.gif';
+import LiquidEther from '../components/ui/liquid-ether';
+
 
 function Home() {
-    return (
-        <Container style={{ paddingTop: '100px' }}>            
+  return (
+<div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
+      {/* LiquidEther background */}
+      <div
+        className="liquid-ether-container"
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          zIndex: 0,
+          pointerEvents: 'none', // allows clicks through
+        }}
+      >
+        <LiquidEther
+          colors={['#62daa2', '#9ef9ff', '#a3f0c0']}
+          mouseForce={20}
+          cursorSize={100}
+          isViscous={false}
+          viscous={30}
+          iterationsViscous={32}
+          iterationsPoisson={32}
+          resolution={0.5}
+          isBounce={false}
+          autoDemo={true}
+          autoSpeed={0.5}
+          autoIntensity={2.2}
+          takeoverDuration={0.25}
+          autoResumeDelay={3000}
+          autoRampDuration={0.6}
+          style={{
+            width: '100%',
+            height: '100%',
+          }}
+        />
+      </div>
+
+        <Container style={{ position: 'relative', zIndex: 1, paddingTop: '200px' }}>  
             <Stack gap={5}>
-                <div>
-                    <Stack direction="horizontal" gap={3}>
-                        <div class="placeholder">
+                <div style={{ paddingBottom: '250px'}}>
+                    <Stack direction="horizontal" gap={3} className="align-items-start">
+                        {/* <div class="placeholder">
                             <img 
                             src={placeholder} 
                             alt="Placeholder animation" 
-                            style={{ width: '500px', borderRadius: '10px' }} 
+                            style={{ width: '550px', borderRadius: '10px' }} 
                             />
-                        </div>
+                        </div> */}
                         <div className="home-container">
                             <Stack>
                                 <div>
@@ -29,7 +68,7 @@ function Home() {
                                     </h1>
                                 </div>
                                 <div>
-                                    <p>
+                                    <p className="welcome-subtitle">
                                         Thistle re-imagines digital art accessibility by turning your hand movements into 
                                         brushstrokes — no tablet, mouse, or stylus needed. 
                                     </p>
@@ -37,16 +76,14 @@ function Home() {
                                 <div>
                                     <Container>
                                         <Row>
-                                            <Col>
-                                                <Button variant="outline-primary">
-                                                    Launch Canvas
-                                                </Button>
-                                            </Col>
-                                            <Col>
-                                                <Button variant="outline-primary">
-                                                    About Us
-                                                </Button>
-                                            </Col>
+                                            <div className="d-flex justify-content-center gap-5 mt-3">
+                                            <Button variant="outline-thistle" size="lg">
+                                                Launch Canvas
+                                            </Button>
+                                            <Button variant="outline-thistle" size="lg">
+                                                About Us
+                                            </Button>
+                                            </div>
                                         </Row>
                                     </Container>
                                 </div>
@@ -57,11 +94,11 @@ function Home() {
                 <div>
                     <Stack>
                         <div>
-                            <h1>
+                            <h2>
                                 <span className="white-text">Our </span>
                                 <span className="gradient-text">Mission</span>
                                 <span className="white-text">.</span>
-                            </h1>
+                            </h2>
                         </div>
                         <div>
                         <p>
@@ -77,11 +114,11 @@ function Home() {
                 <div>
                     <Stack>
                         <div>
-                            <h1>
+                            <h2>
                                 <span className="white-text">How it </span>
                                 <span className="gradient-text">Works</span>
                                 <span className="gradient-text">.</span>
-                            </h1>
+                            </h2>
                         </div>
                         <div>
                             <p>
@@ -171,6 +208,7 @@ function Home() {
                 </div>
             </Stack>
         </Container>
+    </div>    
     );
   }
   
