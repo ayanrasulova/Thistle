@@ -16,6 +16,11 @@ function LaunchCanvas() {
         <div className="right-panel">
           <div className="webcam-placeholder">
             <p>📷 Webcam Feed</p>
+            <img
+              src="http://localhost:5000/video_feed"
+              alt="Live Hand Tracking Feed"
+              className="webcam-stream"
+            />
           </div>
 
           <div className="control-panel">
