@@ -43,7 +43,7 @@ To run the server, first run ```bash npm install ``` to install the npm dependen
 
 ## Challenges We Ran Into
 
-We wanted to have our gestures be univesally acceptable, so cultural barriers were a little bit of a challenge to make sure we didn't use any possibly offensive gestures. 
+We initially were running our live webcam feed locally in a window opened up by our Python script, but in order for us to integrate our OpenCV detection backend to our frontend successfully, we needed to refactor our Python files to output instead to localhost, which took a bit of time. 
 
 ## What We're Proud Of
 
