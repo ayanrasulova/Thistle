@@ -2,3 +2,8 @@ venv/
 node_modules/
 .DS_Store
 __pycache__/
+package-lock.json
+package.json
+src/components/gesture_data.json
+package-lock.json
+package.json
