@@ -7,7 +7,7 @@ import '../App.css';
 
 function NavBar() {
   return (
-    <Navbar expand="lg" className="fixed-top custom-navbar">
+    <Navbar expand="lg" className="fixed-top custom-navbar navshadow">
         <Navbar.Brand href="/" style={{ display: 'flex', alignItems: 'center' }}>
           <img
             alt="Thistle Logo"
