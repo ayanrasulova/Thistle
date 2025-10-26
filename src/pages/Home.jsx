@@ -148,7 +148,7 @@
                                 <h2>
                                     <span className="white-text">How it </span>
                                     <span className="gradient-text">Works</span>
-                                    <span className="gradient-text">.</span>
+                                    <span className="White-text">.</span>
                                 </h2>
                             </div>
                         <Container>
