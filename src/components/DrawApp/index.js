@@ -1,3 +1,5 @@
+import { defaultClientConditions } from "vite";
+
 const canvas = document.getElementById('drawing-board');
 const toolbar = document.getElementById('toolbar');
 const ctx = canvas.getContext('2d');
@@ -62,6 +64,15 @@ function handleJsonChange(newData) {
         ctx.strokeStyle = strokeColor;
     }
   }
+  if (shape != 'rockstar' && pastShape == 'rockstar'){
+    isPainting = false;
+    ctx.stroke();
+    ctx.beginPath();
+    if (isErasing){
+        isErasing = false;
+        ctx.strokeStyle = strokeColor;
+    }
+  }
   if (shape === 'swipe') {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     pastShape = 'swipe';
@@ -91,6 +102,10 @@ function handleJsonChange(newData) {
 
     // update previous state
     pastShape = 'point_thumb_out';
+  }
+  if (shape === 'rockstar') {
+    isErasing = true;
+    ctx.strokeStyle = '#ffff';
   }
   else {
     // default previous state for unexpected gesture
@@ -152,3 +167,5 @@ canvas.addEventListener('mouseup', e => {
 });
 
 canvas.addEventListener('mousemove', draw);
+
+
