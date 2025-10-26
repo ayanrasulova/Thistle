@@ -54,7 +54,7 @@ We initially were running our live webcam feed locally in a window opened up by 
 
 ## What We're Proud Of
 
-(insert here)
+We're proud that we got to create a full-stack application in such little time, integrating our backend with visually appealing UI/UX. We're also just extremely happy to center our work around accessibility. The four of us have been involved in similar works, like PosturePal, and we want to continue to strive and make technology accessible for everyone. 
 
 ## What's next for Thistle:
 
