@@ -18,34 +18,8 @@ let isErasing = false;
 let isDrawing = false;
 let strokeColor = '#0000';
 
-// let lastData = null;
-// async function checkGestureData() {
-//   try {
-//     console.log("Attempting to fetch gesture data...");
 
-//     // 👇 Fetch from your Express server
-//     const res = await fetch('http://localhost:3000/gesture_data.json', {
-//       headers: { 'Accept': 'application/json' },
-//     });
-
-//     console.log("Response status:", res.status, res.statusText);
-
-//     // 👇 Grab raw text first, so we can see exactly what we got
-//     const text = await res.text();
-//     console.log("Raw response text:", text.substring(0, 200)); // limit to 200 chars
-
-//     // 👇 Try to parse as JSON (after we know it looks right)
-//     const data = JSON.parse(text);
-//     console.log("Parsed gesture data:", data);
-
-//     // Now you can use `data.gesture`, etc.
-//     return data;
-//   } catch (error) {
-//     console.error("Failed to fetch gesture data:", error);
-//   }
-// }
-
-let lastData = null; // keep this outside the function
+let lastData = null; 
 
 async function checkGestureData() {
   try {
@@ -53,10 +27,10 @@ async function checkGestureData() {
       headers: { 'Accept': 'application/json' },
     });
 
-    // Read and parse the JSON
+    // read and parse the JSON
     const data = await res.json();
 
-    // Only handle changes if data is different from last fetch
+    // only handle changes if data is different from last fetch
     if (JSON.stringify(data) !== JSON.stringify(lastData)) {
       console.log("Gesture data changed:", data);
       lastData = data;
@@ -70,11 +44,11 @@ async function checkGestureData() {
 
 
 
-// Poll every 500ms
+// Poll every interval ms 
 setInterval(checkGestureData, 100);
 
 function handleJsonChange(newData) {
-  const { gesture, x, y } = newData; // <- directly use the fields
+  const { gesture, x, y } = newData; // separate out json data
   if (!gesture) return;
 
   const shape = gesture.toLowerCase();
@@ -83,7 +57,7 @@ function handleJsonChange(newData) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   }
 
-  // handle other gestures here
+  // TODO: handle rest of hand inputs
 }
 
 
