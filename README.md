@@ -1,4 +1,7 @@
-<img width = "500" src="./src/assets/thistle.png"> <img  width = "500" src="./src/assets/drawingdemo.png">
+<p align="center">
+<img width = "400" src="./src/assets/thistle.png"> <img  width = "400" src="./src/assets/drawingdemo.png">
+</p>
+
 
 # Introducing Thistle :art: 
 **Re-imagining digital art accessibility by turning your hand movements into brushstrokes with AI— no tablet, mouse, or stylus needed.**
