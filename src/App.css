@@ -446,3 +446,59 @@ p {
   transform: scale(1.05);
   opacity: 0.9;
 }
+
+.hand-model-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden; /* prevent scrollbars */
+}
+
+/* Model positioned behind */
+#hero-model {
+  position: absolute;
+  top: 50%;
+  left: 30%; /* pushes model left */
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none; /* leave scroll + clicks to elements above */
+}
+
+.hero-text {
+  position: absolute;
+  right: 5%;   /* distance from right edge */
+  top: 50%;
+  transform: translateY(-50%); /* vertically center */
+  z-index: 2;
+  color: white;
+  max-width: 400px;
+  text-align: right; /* optional for right-aligned text */
+}
+
+.hero-text h1 {
+  font-weight: 600; /* semibold */
+  font-size: 3.5rem;
+}
+
+.hero-text p {
+  font-size: 1.3em !important;
+  text-align: right
+}
+
+.hero-buttons {
+  display: inline-flex;  /* inline so it respects text alignment */
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.hero-buttons button {
+  flex: 1;            /* equal width */
+  min-width: 150px;   /* optional */
+}

@@ -17,6 +17,7 @@
     import img5 from "../assets/img_5.png";
     import LiquidEther from '../components/ui/liquid-ether';
     import ChromaGrid from '../components/ui/chroma-grid';
+    import '@google/model-viewer';
 
     // const missionItems = [
     // { image: "", title: "Text Placeholder 1", subtitle: "Subtitle", handle: "", borderColor: "rgba(187, 255, 246, 0.8)", gradient: "linear-gradient(145deg, rgba(143, 212, 203, 0.2), rgba(158, 255, 110, 0.2))", url: "#" },
@@ -68,6 +69,44 @@
             }}
             />
         </div>
+
+        <div className="hero-section">
+            <div className="hand-model-container">
+                <model-viewer
+                    id="hero-model"
+                    src="/hand.glb"
+                    alt="3D Hand Model"
+                    auto-rotate
+                    camera-orbit="0deg 75deg 100m"
+                    rotation-per-second="7deg"
+                    disable-zoom
+                    exposure="1.2"
+                    environment-image="neutral"
+                    style={{ width: "100%", height: "80vh" }}
+                ></model-viewer>
+            </div>
+
+            <div className="hero-text">
+                <h1>
+                <span className="white-text">Welcome to </span>
+                <span className="gradient-text">Thistle</span>
+                <span className="white-text">.</span>
+                </h1>
+                <p>
+                    Thistle re-imagines digital art accessibility by turning your hand movements into 
+                    brushstrokes — no tablet, mouse, or stylus needed. 
+                </p>
+                <div className="hero-buttons">
+                    <Button as={NavLink} to='/launch-canvas' variant="outline-thistle" size="lg">
+                        Launch Canvas
+                    </Button>
+                    <Button as={NavLink} to='/about-us' variant="outline-thistle" size="lg">
+                        About Us
+                    </Button>
+                </div>
+            </div>
+        </div>
+
         <Container className = "home-container-main">  
                 <Stack gap={5}>
                     <div style={{ paddingBottom: '350px'}}>
@@ -81,19 +120,6 @@
                             </div> */}
                             <div className="home-container">
                                 <Stack>
-                                    <div>
-                                        <h1 className="welcome-heading">
-                                        <span className="white-text">Welcome to </span>
-                                        <span className="gradient-text">Thistle</span>
-                                        <span className="white-text">.</span>
-                                        </h1>
-                                    </div>
-                                    <div>
-                                        <p className="welcome-subtitle">
-                                            Thistle re-imagines digital art accessibility by turning your hand movements into 
-                                            brushstrokes — no tablet, mouse, or stylus needed. 
-                                        </p>
-                                    </div>
                                     <div>
                                         <Container>
                                             <Row>
