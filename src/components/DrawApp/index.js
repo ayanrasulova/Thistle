@@ -25,6 +25,10 @@ socket.onmessage = (event) => {
 
     shape = shape.toLowerCase();
 
+    if (shape == "swipe") {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
     if (shape != "draw" && isDrawing) {
         isPainting = false;
         ctx.stroke();
