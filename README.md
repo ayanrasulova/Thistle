@@ -20,9 +20,9 @@ We chose the name Thistle because the thistle flower is a symbol of resilience �
 
 Thistle utilizes OpenCV and MediaPipe Hands to detect and track hand signals through a live webcam feed, using the hand landmark model bundle that measures the keypoint localization of 21 hand-knuckle coordinates, as listed above. Our custom motion-mapping algorithms classify specific hand gestures, including: 
 
-- index finger with thumb pointing in (☝️) to navigate through the canvas
+- index finger with thumb pointing in (☝️) to interact with the canvas (drawing or erasing)
 - dual fingers (🤘) to switch between drawing and erasing mode 
-- index finger with thumb pointing out (👆) to interact with the canvas (drawing or erasing)
+- index finger with thumb pointing out (👆) to navigate through the canvas
 - finger pinch (🫰) to enter color selection mode 
 - long swipe with both hands (🖐️) to clear the canvas
 - thumbs up (👍) to save a screenshot of your drawing :)
