@@ -1,4 +1,6 @@
-## Welcome to Thistle.io :art: :point_up_2: 
+## Welcome to Thistle :art: :point_up_2: 
+# Re-imagining digital art accessibility by turning your hand movements into brushstrokes— no tablet, mouse, or stylus needed. 
+
 Girls Hoo Hack 2025 Official Submission by Ayan Rasulova (GitHub: ayanrasulova), Emilie Deadman (GitHub: echiino), Amelia Chen, Jack Ellis (GitHub: jackawackadoo)
 
 ## Inspiration:
@@ -11,11 +13,12 @@ Generative AI has become more powerful over the last few years, and a lot of dis
 
 Thistle utilizes OpenCV and MediaPipe Hands to detect and track hand signals through a live webcam feed, using the hand landmark model bundle that measures the keypoint localization of 21 hand-knuckle coordinates, as listed above. Our custom motion-mapping algorithms classify specific hand gestures, including: 
 
-- index finger (☝️) to navigate through the canvas
+- index finger with thumb pointing in (☝️) to navigate through the canvas
 - dual fingers (🤘) to switch between drawing and erasing mode 
-- index finger with thumb out (👆) to interact with the canvas (drawing or erasing)
-- finger pinch (☝️) to enter color selection mode 
-- long swipe (🖐️) to clear the canvas 
+- index finger with thumb pointing out (👆) to interact with the canvas (drawing or erasing)
+- finger pinch (🫰) to enter color selection mode 
+- long swipe with both hands (🖐️) to clear the canvas
+- thumbs up (👍) to save a screenshot of your drawing :)
 
 These gestures are then transmitted in real-time via webcam using Flask to stream live frames (with ```/video_feed```) to run on localhost. We also export all live information on both gestures and x & y coordinates to ```gesture_data.json```, which we parse through to map different gestures to actions on our JavaScript canvas application. We then render the canvas on our front-end website (build with React, CSS, HTML, Tailwind).
 
