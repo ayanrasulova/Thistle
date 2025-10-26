@@ -64,6 +64,28 @@ body {
   }
 }
 
+/* to fix padding */
+.home-container-main {
+  position: relative;
+  z-index: 1;
+  padding-top: 320px; /* default for medium screens */
+
+  /* Larger screens — more top spacing */
+  @media (min-width: 1200px) {
+    padding-top: 300px;
+  }
+
+  @media (min-width: 1600px) {
+    padding-top: 350px;
+  }
+
+  /* Smaller screens — less top spacing */
+  @media (max-width: 768px) {
+    padding-top: 220px;
+  }
+}
+
+
 .card {
   padding: 2em;
 }
