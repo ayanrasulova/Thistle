@@ -7,7 +7,9 @@ Generative AI has become more powerful over the last few years, and a lot of dis
 
 ## Features & How We Built It:
 
-Thistle utilizes OpenCV and MediaPipe Hands to detect and track hand signals through a live webcam feed. Our custom motion-mapping algorithms classify specific hand gestures, including: 
+<img src="./src/assets/opencv.png">
+
+Thistle utilizes OpenCV and MediaPipe Hands to detect and track hand signals through a live webcam feed, using the hand landmark model bundle that measures the keypoint localization of 21 hand-knuckle coordinates, as listed above. Our custom motion-mapping algorithms classify specific hand gestures, including: 
 
 - index finger (☝️) to navigate through the canvas
 - dual fingers (🤘) to switch between drawing and erasing mode 
@@ -15,7 +17,7 @@ Thistle utilizes OpenCV and MediaPipe Hands to detect and track hand signals thr
 - finger pinch (☝️) to enter color selection mode 
 - long swipe (🖐️) to clear the canvas 
 
-These gestures are then transmitted in real-time via webcam to our JavaScript canvas, rendering the canvas on our front-end website (build with React and Tailwind).
+These gestures are then transmitted in real-time via webcam using Flask to stream live frames (with ```/video_feed```) to run on localhost. We also export all live information on both gestures and x & y coordinates to ```gesture_data.json```, which we parse through to map different gestures to actions on our JavaScript canvas application. We then render the canvas on our front-end website (build with React, CSS, HTML, Tailwind).
 
 ## Run Instructions
 
@@ -41,7 +43,7 @@ To run the server, first run ```bash npm install ``` to install the npm dependen
 
 ## Challenges We Ran Into
 
-We wanted to have our gestures be univesally acceptable, so cultural barriers were a little bit of a challenge to make sure we didn't use any possibly offensive gestures. 
+We initially were running our live webcam feed locally in a window opened up by our Python script, but in order for us to integrate our OpenCV detection backend to our frontend successfully, we needed to refactor our Python files to output instead to localhost, which took a bit of time. 
 
 ## What We're Proud Of
 

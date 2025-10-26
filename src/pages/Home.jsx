@@ -4,7 +4,20 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+<<<<<<< HEAD
 import { NavLink } from 'react-router-dom';
+=======
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import '../App.css'
+import img0 from "../assets/img_0.png";
+import img1 from "../assets/img_1.png";
+import img2 from "../assets/img_2.png";
+import img3 from "../assets/img_3.png";
+import img4 from "../assets/img_4.png";
+import img5 from "../assets/img_5.png";
+>>>>>>> main
 import LiquidEther from '../components/ui/liquid-ether';
 import ChromaGrid from '../components/ui/chroma-grid';
 
@@ -20,8 +33,9 @@ const missionItems = [
 
 
 function Home() {
+
   return (
-<div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
+    <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
       {/* LiquidEther background */}
       <div
         className="liquid-ether-container"
@@ -57,8 +71,7 @@ function Home() {
           }}
         />
       </div>
-
-        <Container style={{ position: 'relative', zIndex: 1, paddingTop: '200px' }}>  
+      <Container style={{ position: 'relative', zIndex: 1, paddingTop: '200px' }}>  
             <Stack gap={5}>
                 <div style={{ paddingBottom: '350px'}}>
                     <Stack direction="horizontal" gap={3} className="align-items-start">
@@ -119,7 +132,7 @@ function Home() {
                         />
                     </div>
                     </div>
-                    <div>
+                    <div className="mission-section" style={{ marginTop: '50px', marginBottom: '350px' }}>
                     <Stack>
                         <div>
                             <h2>
@@ -137,82 +150,123 @@ function Home() {
                                 alternative for digital drawing beyond the constraints of a mouse, tablet, or physical device.
                             </p>
                         </div>
-                        <div>
-                            <Container>
-                                <Row>
-                                    <Col>
-                                        <Card style={{ width: '18rem' }}>
-                                            <Card.Img variant="top" src="holder.js/100px180" />
-                                            <Card.Body>
-                                                <Card.Text>
-                                                Some quick example text to build on the card title and make up the
-                                                bulk of the card's content.
-                                                </Card.Text>
-                                            </Card.Body>
-                                        </Card>
-                                    </Col>
-                                    <Col>
-                                        <Card style={{ width: '18rem' }}>
-                                            <Card.Img variant="top" src="holder.js/100px180" />
-                                            <Card.Body>
-                                                <Card.Text>
-                                                Some quick example text to build on the card title and make up the
-                                                bulk of the card's content.
-                                                </Card.Text>
-                                            </Card.Body>
-                                        </Card>
-                                    </Col>
-                                    <Col>
-                                        <Card style={{ width: '18rem' }}>
-                                            <Card.Img variant="top" src="holder.js/100px180" />
-                                            <Card.Body>
-                                                <Card.Text>
-                                                Some quick example text to build on the card title and make up the
-                                                bulk of the card's content.
-                                                </Card.Text>
-                                            </Card.Body>
-                                        </Card>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col>
-                                        <Card style={{ width: '18rem' }}>
-                                            <Card.Img variant="top" src="holder.js/100px180" />
-                                            <Card.Body>
-                                                <Card.Text>
-                                                Some quick example text to build on the card title and make up the
-                                                bulk of the card's content.
-                                                </Card.Text>
-                                            </Card.Body>
-                                        </Card>
-                                    </Col>
-                                    <Col>
-                                        <Card style={{ width: '18rem' }}>
-                                            <Card.Img variant="top" src="holder.js/100px180" />
-                                            <Card.Body>
-                                                <Card.Text>
-                                                Some quick example text to build on the card title and make up the
-                                                bulk of the card's content.
-                                                </Card.Text>
-                                            </Card.Body>
-                                        </Card>
-                                    </Col>
-                                    <Col>
-                                        <Card style={{ width: '18rem' }}>
-                                            <Card.Img variant="top" src="holder.js/100px180" />
-                                            <Card.Body>
-                                                <Card.Text>
-                                                Some quick example text to build on the card title and make up the
-                                                bulk of the card's content.
-                                                </Card.Text>
-                                            </Card.Body>
-                                        </Card>
-                                    </Col>
-                                </Row>
-                            </Container>
-                        </div>
-                        
                     </Stack>
+                </div>
+                <div>
+                    <Container>
+                        <Row>
+                            <Col className="d-flex align-items-stretch mb-4">
+                                <motion.div
+                                    initial={{ opacity: 0, y: 60 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.3 }}
+                                    transition={{ duration: 0.75, delay: 0.2 }}
+                                    className="w-100 h-100"
+                                >
+                                    <Card className="gesture-card w-100 h-100">
+                                        <Card.Img variant="top" src={img0} />
+                                        <Card.Body>
+                                            <Card.Text>
+                                            Use your <span className="gradient-text">Index Finger</span> to navigate through the canvas
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </motion.div>
+                            </Col>
+                            <Col className="d-flex align-items-stretch mb-4">
+                                <motion.div
+                                    initial={{ opacity: 0, y: 60 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.3 }}
+                                    transition={{ duration: 0.75, delay: 0.4 }}
+                                    className="w-100 h-100"
+                                >
+                                    <Card className="gesture-card w-100 h-100">
+                                        <Card.Img variant="top" src={img1} />
+                                        <Card.Body>
+                                            <Card.Text>
+                                            Use <span className="gradient-text">Index + Pinky Fingers</span> to switch between brush and eraser
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </motion.div>
+                            </Col>
+                            <Col className="d-flex align-items-stretch mb-4">
+                                <motion.div
+                                    initial={{ opacity: 0, y: 60 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.3 }}
+                                    transition={{ duration: 0.75, delay: 0.6 }}
+                                    className="w-100 h-100"
+                                >
+                                    <Card className="gesture-card w-100 h-100">
+                                        <Card.Img variant="top" src={img2} />
+                                        <Card.Body>
+                                            <Card.Text>
+                                            Use your <span className="gradient-text">Index Finger with your Thumb Out</span> to draw or erase
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </motion.div>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col className="d-flex align-items-stretch mb-4">
+                                <motion.div
+                                    initial={{ opacity: 0, y: 60 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.3 }}
+                                    transition={{ duration: 0.75, delay: 0.2 }}
+                                    className="w-100 h-100"
+                                >
+                                    <Card className="gesture-card w-100 h-100">
+                                        <Card.Img variant="top" src={img3} />
+                                        <Card.Body>
+                                            <Card.Text>
+                                            Cross your <span className="gradient-text">Index + Thumb</span> to enter color selection mode
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </motion.div>
+                            </Col>
+                            <Col className="d-flex align-items-stretch mb-4">
+                                <motion.div
+                                    initial={{ opacity: 0, y: 60 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.3 }}
+                                    transition={{ duration: 0.75, delay: 0.4 }}
+                                    className="w-100 h-100"
+                                >
+                                    <Card className="gesture-card w-100 h-100">
+                                        <Card.Img variant="top" src={img4} />
+                                        <Card.Body>
+                                            <Card.Text>
+                                            Swipe with your <span className="gradient-text">Hands</span> to clear the canvas
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </motion.div>
+                            </Col>
+                            <Col className="d-flex align-items-stretch mb-4">
+                                <motion.div
+                                    initial={{ opacity: 0, y: 60 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.3 }}
+                                    transition={{ duration: 0.75, delay: 0.6 }}
+                                    className="w-100 h-100"
+                                >
+                                    <Card className="gesture-card w-100 h-100">
+                                        <Card.Img variant="top" src={img5} />
+                                        <Card.Body>
+                                            <Card.Text>
+                                            <span className="gradient-text">Thumbs Up</span> to save a screenshot of the canvas
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </motion.div>
+                            </Col>
+                        </Row>
+                    </Container>
                 </div>
             </Stack>
         </Container>
