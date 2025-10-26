@@ -23,6 +23,7 @@ let lastData = null;
 
 async function checkGestureData() {
   try {
+    // make a request to the served up json file
     const res = await fetch('http://localhost:3000/gesture_data.json', {
       headers: { 'Accept': 'application/json' },
     });
@@ -45,16 +46,57 @@ async function checkGestureData() {
 
 
 // Poll every interval ms 
-setInterval(checkGestureData, 100);
+setInterval(checkGestureData, 50);
 
+let pastShape = "";
 function handleJsonChange(newData) {
   const { gesture, x, y } = newData; // separate out json data
   if (!gesture) return;
 
   const shape = gesture.toLowerCase();
 
+  if (shape != 'point_thumb_out' && pastShape == 'point_thumb_out'){
+    isPainting = false;
+    ctx.stroke();
+    ctx.beginPath();
+    if (isErasing){
+        isErasing = false;
+        ctx.strokeStyle = strokeColor;
+    }
+  }
   if (shape === 'swipe') {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    pastShape = 'swipe';
+  }
+  if (shape === 'point_thumb_out'){
+    if (pastShape === 'point_thumb_out'){
+        // complete the line from past point to current point
+        if(!isPainting) {
+        }
+        else {
+
+            // set the pen parameters
+            ctx.lineWidth = lineWidth;
+            ctx.lineCap = 'round';
+
+            // make a line to the new point!
+            ctx.lineTo(x - canvasOffsetX, y);
+            ctx.stroke();
+        }
+    }
+    else {
+        // start a drawing point here
+        isPainting = true;
+        startX = x;
+        startY = y;
+    }
+
+    // update previous state
+    pastShape = 'point_thumb_out';
+  }
+  else {
+    // default previous state for unexpected gesture
+    pastShape = 'poop';
   }
 
   // TODO: handle rest of hand inputs
