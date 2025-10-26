@@ -130,8 +130,17 @@ def point_thumb_out(hand_landmarks, side):
 def fingers_crossed():
     pass
 
-def thumbs_up():
-    pass
+def thumbs_up(hand_landmarks):
+    index_tip = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP]
+    pinky_tip = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_TIP]
+    middle_tip = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_TIP]
+    ring_tip = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_TIP]
+    pinky_tip = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_TIP]
+    thumb_tip = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP]
+
+    thumb_above = thumb_tip.y < index_tip.y and thumb_tip.y < pinky_tip.y and thumb_tip.y < ring_tip.y and thumb_tip.y < middle_tip.y
+    
+    return (thumb_above)
 
 def rockstar(hand_landmarks):
     index_tip = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP]
