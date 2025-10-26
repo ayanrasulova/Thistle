@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "tailwind:init": "tailwindcss init -p",
-    "flask": "python handtracking.py || python3 handtracking.py"
+    "flask": "python handtracking.py && python3 handtracking.py"
   },
   "dependencies": {
     "@google/model-viewer": "^4.1.0",
