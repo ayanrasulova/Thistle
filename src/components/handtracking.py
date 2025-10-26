@@ -1,8 +1,10 @@
 from flask import Flask, Response
+from flask import jsonify
 import cv2
 import time
 import mediapipe as mp
 import json
+
 
 # Import your existing gesture detection helpers
 from handlandmarks import open_palm, motion_detect, swipe, point_up
@@ -74,8 +76,13 @@ def generate_frames():
                             cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
                 gesture = "point_up"
             else:
-                cv2.putText(image, "right hand: CLOSED / OTHER", (10, 150),
+                cv2.putText(image, "right hand: other", (10, 150),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+                gesture = "other"
+                
+            index_tip = results.right_hand_landmarks.landmark[mp.solutions.hands.HandLandmark.INDEX_FINGER_TIP]
+            cursor_x = int(index_tip.x * 640)  # convert from normalized to pixels
+            cursor_y = int(index_tip.y * 480)
 
         if results.left_hand_landmarks:
             if swipe(results.left_hand_landmarks):
@@ -91,11 +98,11 @@ def generate_frames():
                             cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
                 gesture = "point_up"
             else:
-                cv2.putText(image, "left hand: CLOSED / OTHER", (10, 200),
+                cv2.putText(image, "left hand: other", (10, 200),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+                gesture = "other"
 
         # fps 
-
         current_time = time.time()
         
         fps = 1 / (current_time - prev_time) if prev_time else 0
@@ -106,6 +113,16 @@ def generate_frames():
         _, buffer = cv2.imencode('.jpg', image)
         frame_bytes = buffer.tobytes()
 
+
+        data = {
+            "gesture": gesture,
+            "x": cursor_x,
+            "y": cursor_y
+        }
+        
+        with open("gesture_data.json", "w") as f: # W so it overwrites it, not appends 
+            json.dump(data, f)
+
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
 
@@ -113,6 +130,15 @@ def generate_frames():
 def video_feed():
     return Response(generate_frames(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route("/data")
+def data():
+    try:
+        with open("gesture_data.json", "r") as f:
+            data = json.load(f)
+    except:
+        data = {"gesture": "", "x": 0, "y": 0}
+    return jsonify(data)
 
 # run the server
 if __name__ == '__main__':
