@@ -1,0 +1,10 @@
+express
+concurrently
+three@0.172.0 @google/model-viewer@4.1.0
+@google/model-viewer --legacy-peer-deps
+react-icons
+gsap
+three
+i motion
+react-bootstrap bootstrap
+react-router-dom
