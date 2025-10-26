@@ -46,7 +46,16 @@ If you are having issues with the script, ensure that whatever you are using to 
 
 If these commands are saying you're on the wrong Python version, try running it through your IDE interface (like Visual Studio Code)
 
-To run the server, first run ```bash npm install ``` to install the npm dependencies, then run ```bash npm run dev``` to start the server on your local host. 
+To run the server, first run 
+``` npm install ``` 
+to install the npm dependencies, then run 
+``` npm run dev``` 
+to start the server on your local host. 
+
+If your webcam in "Launch Canvas" is not connecting right away, then run 
+``` handtracking.py``` 
+before running 
+``` npm run dev``` 
 
 ## Challenges We Ran Into
 
