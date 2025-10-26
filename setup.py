@@ -21,11 +21,11 @@ def main():
 
     system = platform.system().lower()
     python_cmd = "python" if system == "windows" else "python3"
-    venv_dir = ".venv"
+    venv_dir = "venv"
 
     # Create venv if missing
     if not os.path.exists(venv_dir):
-        run_list([python_cmd, "-m", ".venv", venv_dir])
+        run_list([python_cmd, "-m", "venv", venv_dir])
     else:
         print("Virtual environment already exists.")
 
