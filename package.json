@@ -13,15 +13,16 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.16",
     "bootstrap": "^5.3.8",
-    "@tailwindcss/vite": "^4.1.16",
     "clsx": "^2.1.1",
+    "framer-motion": "^12.23.24",
     "motion": "^12.23.24",
     "react": "^19.1.1",
     "react-bootstrap": "^2.10.10",
     "react-dom": "^19.1.1",
+    "react-intersection-observer": "^9.16.0",
     "react-router-dom": "^7.9.4",
-    "tailwindcss": "^4.1.16",
     "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.16",
     "three": "^0.180.0"
   },
   "devDependencies": {

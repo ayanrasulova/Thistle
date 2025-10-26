@@ -4,13 +4,23 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-import placeholder from '../assets/placeholder.gif';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import '../App.css'
+import img0 from "../assets/img_0.png";
+import img1 from "../assets/img_1.png";
+import img2 from "../assets/img_2.png";
+import img3 from "../assets/img_3.png";
+import img4 from "../assets/img_4.png";
+import img5 from "../assets/img_5.png";
 import LiquidEther from '../components/ui/liquid-ether';
 
 
 function Home() {
+
   return (
-<div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
+    <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
       {/* LiquidEther background */}
       <div
         className="liquid-ether-container"
@@ -46,8 +56,7 @@ function Home() {
           }}
         />
       </div>
-
-        <Container style={{ position: 'relative', zIndex: 1, paddingTop: '200px' }}>  
+      <Container style={{ position: 'relative', zIndex: 1, paddingTop: '200px' }}>  
             <Stack gap={5}>
                 <div style={{ paddingBottom: '250px'}}>
                     <Stack direction="horizontal" gap={3} className="align-items-start">
@@ -129,82 +138,75 @@ function Home() {
                                 alternative for digital drawing beyond the constraints of a mouse, tablet, or physical device.
                             </p>
                         </div>
-                        <div>
-                            <Container>
-                                <Row>
-                                    <Col>
-                                        <Card style={{ width: '18rem' }}>
-                                            <Card.Img variant="top" src="holder.js/100px180" />
-                                            <Card.Body>
-                                                <Card.Text>
-                                                Some quick example text to build on the card title and make up the
-                                                bulk of the card's content.
-                                                </Card.Text>
-                                            </Card.Body>
-                                        </Card>
-                                    </Col>
-                                    <Col>
-                                        <Card style={{ width: '18rem' }}>
-                                            <Card.Img variant="top" src="holder.js/100px180" />
-                                            <Card.Body>
-                                                <Card.Text>
-                                                Some quick example text to build on the card title and make up the
-                                                bulk of the card's content.
-                                                </Card.Text>
-                                            </Card.Body>
-                                        </Card>
-                                    </Col>
-                                    <Col>
-                                        <Card style={{ width: '18rem' }}>
-                                            <Card.Img variant="top" src="holder.js/100px180" />
-                                            <Card.Body>
-                                                <Card.Text>
-                                                Some quick example text to build on the card title and make up the
-                                                bulk of the card's content.
-                                                </Card.Text>
-                                            </Card.Body>
-                                        </Card>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col>
-                                        <Card style={{ width: '18rem' }}>
-                                            <Card.Img variant="top" src="holder.js/100px180" />
-                                            <Card.Body>
-                                                <Card.Text>
-                                                Some quick example text to build on the card title and make up the
-                                                bulk of the card's content.
-                                                </Card.Text>
-                                            </Card.Body>
-                                        </Card>
-                                    </Col>
-                                    <Col>
-                                        <Card style={{ width: '18rem' }}>
-                                            <Card.Img variant="top" src="holder.js/100px180" />
-                                            <Card.Body>
-                                                <Card.Text>
-                                                Some quick example text to build on the card title and make up the
-                                                bulk of the card's content.
-                                                </Card.Text>
-                                            </Card.Body>
-                                        </Card>
-                                    </Col>
-                                    <Col>
-                                        <Card style={{ width: '18rem' }}>
-                                            <Card.Img variant="top" src="holder.js/100px180" />
-                                            <Card.Body>
-                                                <Card.Text>
-                                                Some quick example text to build on the card title and make up the
-                                                bulk of the card's content.
-                                                </Card.Text>
-                                            </Card.Body>
-                                        </Card>
-                                    </Col>
-                                </Row>
-                            </Container>
-                        </div>
-                        
                     </Stack>
+                </div>
+                <div>
+                    <Container>
+                        <Row>
+                            <Col className="d-flex align-items-stretch mb-4">
+                                <Card>
+                                    <Card.Img variant="top" src={img0} />
+                                    <Card.Body>
+                                        <Card.Text>
+                                        Use your Index Finger to navigate through the canvas
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                            <Col className="d-flex align-items-stretch mb-4">
+                                <Card>
+                                    <Card.Img variant="top" src={img1} />
+                                    <Card.Body>
+                                        <Card.Text>
+                                        Use  Index + Pinky Fingers to switch between brush and eraser
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                            <Col className="d-flex align-items-stretch mb-4">
+                                <Card>
+                                    <Card.Img variant="top" src={img2} />
+                                    <Card.Body>
+                                        <Card.Text>
+                                        Use your Index Finger with your Thumb Out to draw or erase
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col className="d-flex align-items-stretch mb-4">
+                                <Card>
+                                    <Card.Img variant="top" src={img3} />
+                                    <Card.Body>
+                                        <Card.Text>
+                                        Cross your Index + Thumb to enter color selection mode
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                            <Col className="d-flex align-items-stretch mb-4">
+                                <Card>
+                                    <Card.Img variant="top" src={img4} />
+                                    <Card.Body>
+                                        <Card.Text>
+                                        Swipe with your Hand to clear the canvas
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                            <Col className="d-flex align-items-stretch mb-4">
+                                <Card>
+                                    <Card.Img variant="top" src={img5} />
+                                    <Card.Body>
+                                        <Card.Text>
+                                        Thumbs Up to save a screenshot of the canvas
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        </Row>
+                    </Container>
                 </div>
             </Stack>
         </Container>
