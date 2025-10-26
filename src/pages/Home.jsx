@@ -9,13 +9,14 @@ import LiquidEther from '../components/ui/liquid-ether';
 import ChromaGrid from '../components/ui/chroma-grid';
 
 const missionItems = [
-  { image: "", title: "Text Placeholder 1", subtitle: "Subtitle", handle: "", borderColor: "#3B82F6", gradient: "linear-gradient(145deg, #3B82F6, #000)", url: "#" },
-  { image: "", title: "Image Placeholder 1", subtitle: "Subtitle", handle: "", borderColor: "#10B981", gradient: "linear-gradient(180deg, #10B981, #000)", url: "#" },
-  { image: "", title: "Text Placeholder 2", subtitle: "Subtitle", handle: "", borderColor: "#F59E0B", gradient: "linear-gradient(145deg, #F59E0B, #000)", url: "#" },
-  { image: "", title: "Image Placeholder 2", subtitle: "Subtitle", handle: "", borderColor: "#EF4444", gradient: "linear-gradient(180deg, #EF4444, #000)", url: "#" },
-  { image: "", title: "Text Placeholder 3", subtitle: "Subtitle", handle: "", borderColor: "#8B5CF6", gradient: "linear-gradient(145deg, #8B5CF6, #000)", url: "#" },
-  { image: "", title: "Image Placeholder 3", subtitle: "Subtitle", handle: "", borderColor: "#14B8A6", gradient: "linear-gradient(180deg, #14B8A6, #000)", url: "#" },
+  { image: "", title: "Text Placeholder 1", subtitle: "Subtitle", handle: "", borderColor: "rgba(187, 255, 246, 0.8)", gradient: "linear-gradient(145deg, rgba(143, 212, 203, 0.2), rgba(158, 255, 110, 0.2))", url: "#" },
+  { image: "", title: "Image Placeholder 1", subtitle: "Subtitle", handle: "", borderColor: "rgba(187, 255, 246, 0.8)", gradient: "linear-gradient(145deg, rgba(143, 212, 203, 0.2), rgba(158, 255, 110, 0.2))", url: "#" },
+  { image: "", title: "Text Placeholder 2", subtitle: "Subtitle", handle: "", borderColor: "rgba(187, 255, 246, 0.8)", gradient: "linear-gradient(145deg, rgba(143, 212, 203, 0.2), rgba(158, 255, 110, 0.2))", url: "#" },
+  { image: "", title: "Image Placeholder 2", subtitle: "Subtitle", handle: "", borderColor: "rgba(187, 255, 246, 0.8)", gradient: "linear-gradient(145deg, rgba(143, 212, 203, 0.2), rgba(158, 255, 110, 0.2))", url: "#" },
+  { image: "", title: "Text Placeholder 3", subtitle: "Subtitle", handle: "", borderColor: "rgba(187, 255, 246, 0.8)", gradient: "linear-gradient(145deg, rgba(143, 212, 203, 0.2), rgba(158, 255, 110, 0.2))", url: "#" },
+  { image: "", title: "Image Placeholder 3", subtitle: "Subtitle", handle: "", borderColor: "rgba(187, 255, 246, 0.8)", gradient: "linear-gradient(145deg, rgba(143, 212, 203, 0.2), rgba(158, 255, 110, 0.2))", url: "#" },
 ];
+
 
 
 function Home() {
@@ -102,23 +103,21 @@ function Home() {
                     </Stack>
                 </div>
                 <div className="mission-section" style={{ marginTop: '50px', marginBottom: '350px' }}>
-                    {/* Heading outside the cards */}
                     <h2 className="welcome-heading">
                         <span className="white-text">Our </span>
                         <span className="gradient-text">Mission</span>
                         <span className="white-text">.</span>
                     </h2>
 
-                    {/* Cards side by side */}
                     <div style={{ position: 'relative', minHeight: '600px', marginTop: '30px' }}>
                         <ChromaGrid
-                            items={missionItems}
-                            radius={300}
-                            damping={0.45}
-                            fadeOut={0.6}
-                            ease="power3.out"
+                        items={missionItems}
+                        radius={300}
+                        damping={0.45}
+                        fadeOut={0.6}
+                        ease="power3.out"
                         />
-                        </div>
+                    </div>
                     </div>
                     <div>
                     <Stack>
