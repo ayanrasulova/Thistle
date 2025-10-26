@@ -137,7 +137,7 @@ function Home() {
                         </Row>
                     </Container>
                     </div>
-                    <div>
+                    <div className="mission-section" style={{ marginTop: '50px', marginBottom: '350px' }}>
                     <Stack>
                         <div>
                             <h2>
@@ -161,66 +161,114 @@ function Home() {
                     <Container>
                         <Row>
                             <Col className="d-flex align-items-stretch mb-4">
-                                <Card>
-                                    <Card.Img variant="top" src={img0} />
-                                    <Card.Body>
-                                        <Card.Text>
-                                        Use your Index Finger to navigate through the canvas
-                                        </Card.Text>
-                                    </Card.Body>
-                                </Card>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 60 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.3 }}
+                                    transition={{ duration: 0.75, delay: 0.2 }}
+                                    className="w-100 h-100"
+                                >
+                                    <Card className="gesture-card w-100 h-100">
+                                        <Card.Img variant="top" src={img0} />
+                                        <Card.Body>
+                                            <Card.Text>
+                                            Use your <span className="gradient-text">Index Finger</span> to navigate through the canvas
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </motion.div>
                             </Col>
                             <Col className="d-flex align-items-stretch mb-4">
-                                <Card>
-                                    <Card.Img variant="top" src={img1} />
-                                    <Card.Body>
-                                        <Card.Text>
-                                        Use  Index + Pinky Fingers to switch between brush and eraser
-                                        </Card.Text>
-                                    </Card.Body>
-                                </Card>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 60 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.3 }}
+                                    transition={{ duration: 0.75, delay: 0.4 }}
+                                    className="w-100 h-100"
+                                >
+                                    <Card className="gesture-card w-100 h-100">
+                                        <Card.Img variant="top" src={img1} />
+                                        <Card.Body>
+                                            <Card.Text>
+                                            Use <span className="gradient-text">Index + Pinky Fingers</span> to switch between brush and eraser
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </motion.div>
                             </Col>
                             <Col className="d-flex align-items-stretch mb-4">
-                                <Card>
-                                    <Card.Img variant="top" src={img2} />
-                                    <Card.Body>
-                                        <Card.Text>
-                                        Use your Index Finger with your Thumb Out to draw or erase
-                                        </Card.Text>
-                                    </Card.Body>
-                                </Card>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 60 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.3 }}
+                                    transition={{ duration: 0.75, delay: 0.6 }}
+                                    className="w-100 h-100"
+                                >
+                                    <Card className="gesture-card w-100 h-100">
+                                        <Card.Img variant="top" src={img2} />
+                                        <Card.Body>
+                                            <Card.Text>
+                                            Use your <span className="gradient-text">Index Finger with your Thumb Out</span> to draw or erase
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </motion.div>
                             </Col>
                         </Row>
                         <Row>
                             <Col className="d-flex align-items-stretch mb-4">
-                                <Card>
-                                    <Card.Img variant="top" src={img3} />
-                                    <Card.Body>
-                                        <Card.Text>
-                                        Cross your Index + Thumb to enter color selection mode
-                                        </Card.Text>
-                                    </Card.Body>
-                                </Card>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 60 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.3 }}
+                                    transition={{ duration: 0.75, delay: 0.2 }}
+                                    className="w-100 h-100"
+                                >
+                                    <Card className="gesture-card w-100 h-100">
+                                        <Card.Img variant="top" src={img3} />
+                                        <Card.Body>
+                                            <Card.Text>
+                                            Cross your <span className="gradient-text">Index + Thumb</span> to enter color selection mode
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </motion.div>
                             </Col>
                             <Col className="d-flex align-items-stretch mb-4">
-                                <Card>
-                                    <Card.Img variant="top" src={img4} />
-                                    <Card.Body>
-                                        <Card.Text>
-                                        Swipe with your Hand to clear the canvas
-                                        </Card.Text>
-                                    </Card.Body>
-                                </Card>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 60 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.3 }}
+                                    transition={{ duration: 0.75, delay: 0.4 }}
+                                    className="w-100 h-100"
+                                >
+                                    <Card className="gesture-card w-100 h-100">
+                                        <Card.Img variant="top" src={img4} />
+                                        <Card.Body>
+                                            <Card.Text>
+                                            Swipe with your <span className="gradient-text">Hands</span> to clear the canvas
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </motion.div>
                             </Col>
                             <Col className="d-flex align-items-stretch mb-4">
-                                <Card>
-                                    <Card.Img variant="top" src={img5} />
-                                    <Card.Body>
-                                        <Card.Text>
-                                        Thumbs Up to save a screenshot of the canvas
-                                        </Card.Text>
-                                    </Card.Body>
-                                </Card>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 60 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.3 }}
+                                    transition={{ duration: 0.75, delay: 0.6 }}
+                                    className="w-100 h-100"
+                                >
+                                    <Card className="gesture-card w-100 h-100">
+                                        <Card.Img variant="top" src={img5} />
+                                        <Card.Body>
+                                            <Card.Text>
+                                            <span className="gradient-text">Thumbs Up</span> to save a screenshot of the canvas
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </motion.div>
                             </Col>
                         </Row>
                     </Container>
