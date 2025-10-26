@@ -83,6 +83,6 @@ We initially were running our live webcam feed locally in a window opened up by 
 
 We're proud that we got to create a full-stack application in such little time, integrating our backend with visually appealing UI/UX. We're also just extremely happy to center our work around accessibility. The four of us have been involved in similar works, like PosturePal, and we want to continue to strive and make technology accessible for everyone. 
 
-## What's next for Thistle:
+## What's Next for Thistle:
 
 We have centered our design with consideration to those with Parkinson's, Dyspraxia, and carpal tunnel syndrome. However, we plan to allow for customization with our computer vision mappings, allowing people to map canvas interactions to kinesthetic movements that feel most comfortable for them.
