@@ -67,8 +67,8 @@ export default function DrawingBoard({ strokeColor, lineWidth, isErasing, setIsE
       return;
     }
 
-    if (shape === "point_thumb_out") {
-      if (pastShape === "point_thumb_out") {
+    if (shape === "point_thumb_in") {
+      if (pastShape === "point_thumb_in") {
         if (!isPainting) setIsPainting(true);
         else {
           ctx.lineTo(x, y);
@@ -79,9 +79,9 @@ export default function DrawingBoard({ strokeColor, lineWidth, isErasing, setIsE
         ctx.moveTo(x, y);
         setIsPainting(true);
       }
-      setPastShape("point_thumb_out");
+      setPastShape("point_thumb_in");
     } else {
-      if (pastShape === "point_thumb_out") {
+      if (pastShape === "point_thumb_in") {
         setIsPainting(false);
         ctx.stroke();
         ctx.beginPath();

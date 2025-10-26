@@ -10,7 +10,7 @@ Girls Hoo Hack 2025 Official Submission by Ayan Rasulova (GitHub: ayanrasulova),
 
 ## Inspiration:
 
-Generative AI has become more powerful over the last few years, and a lot of discourse within art communities involves the idea that artists with disabilities are not able to create art without the use of generating drawings through prompt engineering. As passionate artists and software developers, we wanted to challenge this notion, offering an accessible machine learning alternative for digital drawing beyond the constraints of a mouse, tablet, or physical device. 
+Generative AI has become more powerful over the last few years, and a lot of discourse within art communities involves the idea that artists with disabilities, like Parkinson's, Dyspraxia, and carpal tunnel syndrome, are not able to create art without the use of generating drawings through prompt engineering. As passionate artists and software developers, we wanted to challenge this notion, offering an accessible machine learning alternative for digital drawing beyond the constraints of a mouse, tablet, or physical device. 
 
 We chose the name Thistle because the thistle flower is a symbol of resilience — it thrives even in harsh conditions, standing tall despite hardship. That’s exactly how we see artists today: facing uncertainty, yet continuing to create and push the boundaries of expression.
 
@@ -20,14 +20,14 @@ We chose the name Thistle because the thistle flower is a symbol of resilience �
 
 Thistle utilizes OpenCV and MediaPipe Hands to detect and track hand signals through a live webcam feed, using the hand landmark model bundle that measures the keypoint localization of 21 hand-knuckle coordinates, as listed above. Our custom motion-mapping algorithms classify specific hand gestures, including: 
 
-- index finger with thumb pointing in (☝️) to navigate through the canvas
+- index finger with thumb pointing in (☝️) to interact with the canvas (drawing or erasing)
 - dual fingers (🤘) to switch between drawing and erasing mode 
-- index finger with thumb pointing out (👆) to interact with the canvas (drawing or erasing)
+- index finger with thumb pointing out (👆) to navigate through the canvas
 - finger pinch (🫰) to enter color selection mode 
 - long swipe with both hands (🖐️) to clear the canvas
 - thumbs up (👍) to save a screenshot of your drawing :)
 
-These gestures are then transmitted in real-time via webcam using Flask to stream live frames (with ```/video_feed```) to run on localhost. We also export all live information on both gestures and x & y coordinates to ```gesture_data.json```, which we parse through to map different gestures to actions on our JavaScript canvas application. We then render the canvas on our front-end website (build with React, Node, Bootstrap, Motion, Vite, CSS, HTML, Tailwind).
+These gestures are then transmitted in real-time via webcam using Flask to stream live frames (with ```/video_feed```) to run on localhost. We also export all live information on both gestures and x & y coordinates to ```gesture_data.json```, which we parse through to map different gestures to actions on our JavaScript canvas application. We then render the canvas on our front-end webapp (build with React, Node, Bootstrap, Motion, Vite, CSS, HTML, Tailwind).
 
 ## Run Instructions
 

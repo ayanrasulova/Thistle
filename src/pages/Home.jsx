@@ -218,7 +218,7 @@
                                             <Card.Img variant="top" src={img0} />
                                             <Card.Body>
                                                 <Card.Text>
-                                                Use your <span className="gradient-text">Index Finger</span> to navigate through the canvas
+                                                Use your <span className="gradient-text">Index Finger</span> to draw or erase
                                                 </Card.Text>
                                             </Card.Body>
                                         </Card>
@@ -254,7 +254,7 @@
                                             <Card.Img variant="top" src={img2} />
                                             <Card.Body>
                                                 <Card.Text>
-                                                Use your <span className="gradient-text">Index Finger with your Thumb Out</span> to draw or erase
+                                                Use your <span className="gradient-text">Index Finger with your Thumb Out</span> to navigate through the canvas
                                                 </Card.Text>
                                             </Card.Body>
                                         </Card>
