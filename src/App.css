@@ -137,3 +137,18 @@ p {
     linear-gradient(90deg, #8FD4CB, #9EFF6E) padding-box,
     linear-gradient(90deg, #8FD4CB, #9EFF6E) border-box !important;
 }
+
+.mission-card {
+  background-color: rgba(255, 255, 255, 0.2) !important; /* 20% opacity */
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 15px !important;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  color: white;
+  margin-bottom: 50px;
+}
+
+.mission-card p {
+  color: white;
+  font-size: 1em;
+}
