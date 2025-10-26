@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import { NavLink } from 'react-router-dom';
 import placeholder from '../assets/placeholder.gif';
 import LiquidEther from '../components/ui/liquid-ether';
 
@@ -77,10 +78,10 @@ function Home() {
                                     <Container>
                                         <Row>
                                             <div className="d-flex justify-content-center gap-5 mt-3">
-                                            <Button variant="outline-thistle" size="lg">
+                                            <Button as={NavLink} to='/launch-canvas' variant="outline-thistle" size="lg">
                                                 Launch Canvas
                                             </Button>
-                                            <Button variant="outline-thistle" size="lg">
+                                            <Button as={NavLink} to='/about-us' variant="outline-thistle" size="lg">
                                                 About Us
                                             </Button>
                                             </div>
