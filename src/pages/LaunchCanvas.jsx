@@ -1,4 +1,5 @@
 import React from "react";
+import DrawingBoard from "../components/DrawingBoard";
 import "../App.css";
 
 function LaunchCanvas() {
@@ -7,9 +8,7 @@ function LaunchCanvas() {
       <div className="workspace">
         {/* Left section: Canvas */}
         <div className="canvas-section">
-          <div className="canvas-placeholder">
-            <p>🎨 Drawing Canvas Placeholder</p>
-          </div>
+          <DrawingBoard /> {}
         </div>
 
         {/* Right section: Webcam ABOVE controls */}
