@@ -109,35 +109,6 @@
 
         <Container className = "home-container-main">  
                 <Stack gap={5}>
-                    <div style={{ paddingBottom: '350px'}}>
-                        <Stack direction="horizontal" gap={3} className="align-items-start">
-                            {/* <div class="placeholder">
-                                <img 
-                                src={placeholder} 
-                                alt="Placeholder animation" 
-                                style={{ width: '550px', borderRadius: '10px' }} 
-                                />
-                            </div> */}
-                            <div className="home-container">
-                                <Stack>
-                                    <div>
-                                        <Container>
-                                            <Row>
-                                                <div className="d-flex justify-content-center gap-5 mt-3">
-                                                <Button as={NavLink} to='/launch-canvas' variant="outline-thistle" size="lg">
-                                                    Launch Canvas
-                                                </Button>
-                                                <Button as={NavLink} to='/about-us' variant="outline-thistle" size="lg">
-                                                    About Us
-                                                </Button>
-                                                </div>
-                                            </Row>
-                                        </Container>
-                                    </div>
-                                </Stack>
-                            </div>
-                        </Stack>
-                    </div>
                         <div className="mission-section" style={{ marginTop: '50px', marginBottom: '250px' }}>
                         <h2 className="welcome-heading text-center mb-4">
                             <span className="white-text">Our </span>
