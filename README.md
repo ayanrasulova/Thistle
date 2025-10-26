@@ -63,7 +63,7 @@ npm run dev
 ``` 
 to start the server on your local host. 
 
-If your webcam in "Launch Canvas" is not connecting right away, then run 
+If your webcam in "Launch Canvas" is not connecting right away, then, in a separate terminal, run 
 ``` bash
 handtracking.py
 ``` 
@@ -77,11 +77,11 @@ node server.js
 
 ## Challenges We Ran Into
 
-We initially were running our live webcam feed locally in a window opened up by our Python script, but in order for us to integrate our OpenCV detection backend to our frontend successfully, we needed to refactor our Python files to output instead to localhost, which took a bit of time. We also ran into difficulties with the actual CTX context references when calling specific motion gestures. 
+We initially were running our live webcam feed locally in a window opened up by our Python script, but in order for us to integrate our OpenCV detection backend to our frontend successfully, we needed to refactor our Python files to output instead to localhost, which took a bit of time. We also ran into difficulties with the actual CTX context references when calling specific motion gestures. Additionally, as the libraries we added started to build up, it became very overwhelming to manage all the differnt dependencies on everyone's individual computers. This is why we wrote startup.py, as a way to centralize all the dependencies we relied on.
 
 ## What We're Proud Of
 
-We're proud that we got to create a full-stack application in such little time, integrating our backend with visually appealing UI/UX. We're also just extremely happy to center our work around accessibility. The four of us have been involved in similar works, like PosturePal, and we want to continue to strive and make technology accessible for everyone. 
+We're proud that we got to create a full-stack application in such little time, integrating our backend with visually appealing UI/UX. We're also just extremely happy to center our work around accessibility. The four of us have been involved in similar works, like PosturePal, an affordable health-data monitoring device for your neck posture, and we want to continue to strive and make technology accessible for everyone. 
 
 ## What's Next for Thistle:
 
