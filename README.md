@@ -1,5 +1,5 @@
 # Welcome to Thistle :art: :point_up_2: 
-## Re-imagining digital art accessibility by turning your hand movements into brushstrokes— no tablet, mouse, or stylus needed. 
+**Re-imagining digital art accessibility by turning your hand movements into brushstrokes— no tablet, mouse, or stylus needed.**
 
 Girls Hoo Hack 2025 Official Submission by Ayan Rasulova (GitHub: ayanrasulova), Emilie Deadman (GitHub: echiino), Amelia Chen, Jack Ellis (GitHub: jackawackadoo)
 
@@ -26,7 +26,7 @@ These gestures are then transmitted in real-time via webcam using Flask to strea
 
 First, make sure you have Node.js installed. You then need to run the setup script:
 
-***You must be using Python 3.12 for the necessary libraries to work***
+**You must be using Python 3.12 for the necessary libraries to work**
 
 For Windows:
 ```bash
