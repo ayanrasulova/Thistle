@@ -50,15 +50,26 @@ If you are having issues with the script, ensure that whatever you are using to 
 If these commands are saying you're on the wrong Python version, try running it through your IDE interface (like Visual Studio Code)
 
 To run the server, first run 
-``` npm install ``` 
+```bash
+npm install
+```
 to install the npm dependencies, then run 
-``` npm run dev``` 
+```bash
+npm run dev
+``` 
 to start the server on your local host. 
 
 If your webcam in "Launch Canvas" is not connecting right away, then run 
-``` handtracking.py``` 
+``` bash
+handtracking.py
+``` 
 before running 
 ``` npm run dev``` 
+
+Once you run ```npm run dev```, you should see a localhost link where the webapp will be hosted on. In order to load the backend, run:  
+```bash
+node server.js
+```
 
 ## Challenges We Ran Into
 
