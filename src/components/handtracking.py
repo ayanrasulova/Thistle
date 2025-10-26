@@ -65,12 +65,18 @@ def generate_frames():
         right_swiped = False
         left_swiped = False
 
+        # if results.right_hand_landmarks and results.left_hand_landmarks:
+        #     if left_swiped and right_swiped:
+        #         cv2.putText(image, "DOUBLE SWIPE DETECTED!", (200, 400),
+        #         cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 255, 255), 3)
+        #         gesture = "double_swipe"
+
         # right hand
         if results.right_hand_landmarks:
 
             if swipe(results.right_hand_landmarks):
                 right_swiped = True
-                cv2.putText(image, "right hand: swipe", (10, 200),
+                cv2.putText(image, "right hand: swipe", (10, 150),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
                 gesture = "swipe"
 
@@ -162,11 +168,6 @@ def generate_frames():
             index_tip = results.left_hand_landmarks.landmark[mp.solutions.hands.HandLandmark.INDEX_FINGER_TIP]
             cursor_x = int(index_tip.x * 640)  # convert from normalized to pixels
             cursor_y = int(index_tip.y * 480)
-
-        if left_swiped and right_swiped:
-            cv2.putText(image, "DOUBLE SWIPE DETECTED!", (200, 400),
-            cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 255, 255), 3)
-            gesture = "double_swipe"
                 
         # fps 
         current_time = time.time()
