@@ -376,7 +376,7 @@ p {
 
 .hero-text {
   position: absolute;
-  right: 5%;   /* distance from right edge */
+  right: 6.5%;   /* distance from right edge */
   top: 50%;
   transform: translateY(-50%); /* vertically center */
   z-index: 2;
