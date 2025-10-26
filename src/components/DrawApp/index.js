@@ -75,32 +75,39 @@ function handleJsonChange(newData) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     pastShape = 'swipe';
   }
-  if (shape === 'point_thumb_out') {
-    if (pastShape !== 'point_thumb_out') {
-      // starting a new stroke
-      isPainting = true;
-      ctx.beginPath();
-      ctx.moveTo(x - canvasOffsetX, y);
+  if (shape === 'point_thumb_out'){
+    if (pastShape === 'point_thumb_out'){
+        // complete the line from past point to current point
+        if(!isPainting) {
+          isPainting = true
+        }
+        else {
+
+            // set the pen parameters
+            ctx.lineWidth = lineWidth;
+            ctx.lineCap = 'round';
+
+            // make a line to the new point!
+            ctx.lineTo(x - canvasOffsetX, y);
+            ctx.stroke();
+        }
     }
-     else if (isPainting) {
-      // continue the stroke
-      ctx.lineWidth = lineWidth;
-      ctx.lineCap = 'round';
-      ctx.lineTo(x - canvasOffsetX, y);
-      ctx.stroke();
-  }
+    else {
+        // start a drawing point here
+        isPainting = true;
+        startX = x;
+        startY = y;
+    }
 
-  pastShape = 'point_thumb_out';
-}
-
-  if (shape === 'rockstar') {
-    isErasing = true;
-    ctx.strokeStyle = '#ffff';
+    // update previous state
+    pastShape = 'point_thumb_out';
   }
   else {
     // default previous state for unexpected gesture
     pastShape = 'poop';
   }
+  
+
 
   // TODO: handle rest of hand inputs
 }
