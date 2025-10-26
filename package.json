@@ -17,7 +17,8 @@
     "bootstrap": "^5.3.8",
     "clsx": "^2.1.1",
     "express": "^5.1.0",
-    "concurrently": "^9.2.1",
+    "flask": "^0.2.10",
+    "flask-cors": "^0.0.1",
     "framer-motion": "^12.23.24",
     "gsap": "^3.13.0",
     "motion": "^12.23.24",
@@ -29,7 +30,7 @@
     "react-router-dom": "^7.9.4",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.16",
-    "three": "^0.180.0"
+    "three": "^0.172.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
