@@ -49,7 +49,7 @@ function Home() {
 
         <Container style={{ position: 'relative', zIndex: 1, paddingTop: '200px' }}>  
             <Stack gap={5}>
-                <div style={{ paddingBottom: '250px'}}>
+                <div style={{ paddingBottom: '350px'}}>
                     <Stack direction="horizontal" gap={3} className="align-items-start">
                         {/* <div class="placeholder">
                             <img 
@@ -91,27 +91,44 @@ function Home() {
                         </div>
                     </Stack>
                 </div>
-                <div>
-                    <Stack>
-                        <div>
-                            <h2>
-                                <span className="white-text">Our </span>
-                                <span className="gradient-text">Mission</span>
-                                <span className="white-text">.</span>
-                            </h2>
-                        </div>
-                        <div>
-                        <p>
-                            Generative AI has become more powerful over the last few years, and a lot of discourse 
-                            within art communities involves the idea that artists with disabilities are not able to 
-                            create art without the use of generating drawings through prompt engineering. As passionate 
-                            artists and software developers, we wanted to challenge this notion, offering an accessible 
-                            alternative for digital drawing beyond the constraints of a mouse, tablet, or physical device.
-                        </p>
-                        </div>
-                    </Stack>
-                </div>
-                <div>
+                <div className="mission-section" style={{ marginTop: '50px', marginBottom: '350px' }}>
+                    {/* Heading outside the cards */}
+                    <h2 className="welcome-heading">
+                        <span className="white-text">Our </span>
+                        <span className="gradient-text">Mission</span>
+                        <span className="white-text">.</span>
+                    </h2>
+
+                    {/* Cards side by side */}
+                    <Container>
+                        <Row className="justify-content-center g-4" style={{ display: 'flex', alignItems: 'stretch' }}>
+                        {/* Card 1: Blurb */}
+                        <Col xs={12} md={6}>
+                            <Card className="mission-card" style={{ flex: 1 }}>
+                            <Card.Body>
+                                <p>
+                                Generative AI has become more powerful over the last few years, and a lot of discourse 
+                                within art communities involves the idea that artists with disabilities are not able to 
+                                create art without the use of generating drawings through prompt engineering. As passionate 
+                                artists and software developers, we wanted to challenge this notion, offering an accessible 
+                                alternative for digital drawing beyond the constraints of a mouse, tablet, or physical device.
+                                </p>
+                            </Card.Body>
+                            </Card>
+                        </Col>
+
+                        {/* Card 2: Image placeholder */}
+                        <Col xs={12} md={6} style={{ display: 'flex' }}>
+                            <Card className="mission-card" style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                            <Card.Body>
+                                <p style={{ color: 'rgba(255,255,255,0.5)' }}>Image Placeholder</p>
+                            </Card.Body>
+                            </Card>
+                        </Col>
+                        </Row>
+                    </Container>
+                    </div>
+                    <div>
                     <Stack>
                         <div>
                             <h2>
