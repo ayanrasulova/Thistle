@@ -1,5 +1,5 @@
-## Welcome to Thistle :art: :point_up_2: 
-# Re-imagining digital art accessibility by turning your hand movements into brushstrokes— no tablet, mouse, or stylus needed. 
+# Welcome to Thistle :art: :point_up_2: 
+## Re-imagining digital art accessibility by turning your hand movements into brushstrokes— no tablet, mouse, or stylus needed. 
 
 Girls Hoo Hack 2025 Official Submission by Ayan Rasulova (GitHub: ayanrasulova), Emilie Deadman (GitHub: echiino), Amelia Chen, Jack Ellis (GitHub: jackawackadoo)
 
