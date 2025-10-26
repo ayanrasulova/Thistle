@@ -1,3 +1,5 @@
+const socket = new WebSocket("ws://localhost:6789");
+
 const canvas = document.getElementById('drawing-board');
 const toolbar = document.getElementById('toolbar');
 const ctx = canvas.getContext('2d');
@@ -13,7 +15,45 @@ let lineWidth = 5;
 let startX;
 let startY;
 let isErasing = false;
+let isDrawing = false;
 let strokeColor = '#0000';
+
+// recieved a JSON object from websocket server
+socket.onmessage = (event) => {
+    const { x, y, shape } = JSON.parse(event.data);
+
+
+    shape = shape.toLowerCase();
+
+    if (shape != "draw" && isDrawing) {
+        isPainting = false;
+        ctx.stroke();
+        ctx.beginPath();
+        if (isErasing){
+            isErasing = false;
+            ctx.strokeStyle = strokeColor;
+        }
+    }
+
+    // here you will add all your different gestures
+    switch (shape){
+        case "draw":
+            // collect the coords of index finger tip
+            const posX = x * canvas.width;
+            const posY = y * canvas.height;
+            if (!isDrawing){
+                isDrawing = true;
+                ctx.beginPath();
+                ctx.moveTo(posX, posY);
+            }
+            ctx.lineTo(posX, posY);
+            ctx.stroke();
+
+            break;
+        case "swipe":
+            break;
+    }
+}
 
 toolbar.addEventListener('click', e => {
     if (e.target.id === 'clear') {
