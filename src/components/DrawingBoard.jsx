@@ -27,11 +27,14 @@ export default function DrawingBoard({ strokeColor, lineWidth, isErasing, setIsE
   }, [strokeColor, lineWidth, isErasing]);
 
   // Handle clear trigger
-  useEffect(() => {
-    if (clearTrigger && ctxRef.current) {
-      ctxRef.current.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
-    }
-  }, [clearTrigger]);
+useEffect(() => {
+  if (clearTrigger && canvasRef.current && ctxRef.current) {
+    const canvas = canvasRef.current;
+    const ctx = ctxRef.current;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    console.log("Canvas cleared from button!");
+  }
+}, [clearTrigger]);
 
   // Poll gesture JSON every 100ms
   useEffect(() => {
@@ -81,7 +84,7 @@ export default function DrawingBoard({ strokeColor, lineWidth, isErasing, setIsE
       }
       setPastShape("point_thumb_in");
     } else {
-      if (pastShape === "point_thumb_in") {
+      if (pastShape === "point_thumb_") {
         setIsPainting(false);
         ctx.stroke();
         ctx.beginPath();
