@@ -6,7 +6,7 @@ import mediapipe as mp
 import json
 
 
-from handlandmarks import open_palm, swipe, point_thumb_in, point_thumb_out
+from handlandmarks import open_palm, swipe, point_thumb_in, point_thumb_out, rockstar
 
 app = Flask(__name__)
 
@@ -74,10 +74,15 @@ def generate_frames():
                 cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
                 gesture = "swipe"
 
-            if open_palm(results.right_hand_landmarks):
-                cv2.putText(image, "right hand: open", (10, 150),
+            elif open_palm(results.right_hand_landmarks):
+                cv2.putText(image, "right hand: rockstar", (10, 150),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
                 gesture = "open_palm"
+
+            elif rockstar(results.right_hand_landmarks):
+                cv2.putText(image, "right hand: rockstar", (10, 150),
+                cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+                gesture = "rockstar"
 
             elif point_thumb_in(results.right_hand_landmarks, "right"):
                 cv2.putText(image, "right hand: pointing - thumb in", (10, 150),
@@ -112,6 +117,11 @@ def generate_frames():
                 cv2.putText(image, "left hand: open", (10, 200),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
                 gesture = "open_palm"
+
+            elif rockstar(results.left_hand_landmarks):
+                cv2.putText(image, "left hand: rockstar", (10, 200),
+                cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+                gesture = "rockstar"
 
             elif point_thumb_in(results.left_hand_landmarks, "left"):
                 cv2.putText(image, "left hand: pointing - thumb in", (10, 200),
