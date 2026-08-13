@@ -1,3 +1,5 @@
+
+
 <p align="center">
 <img width = "400" src="./src/assets/thistle.png"> <img  width = "400" src="./src/assets/drawingdemo.png">
 </p>
@@ -66,10 +68,7 @@ handtracking.py
 before running 
 ``` npm run dev``` 
 
-Once you run ```npm run dev```, you should see a localhost link where the webapp will be hosted on. In order to load the backend, run:  
-```bash
-node server.js
-```
+Once you run ```npm run dev```, you should see a localhost link where the webapp will be hosted on. The backend is automatically started by the `npm run dev` script (which runs `handtracking.py` via `concurrently`).
 
 ## Challenges We Ran Into
 
